@@ -12,6 +12,9 @@
 		2C1DBEC525B99C5100ABEF75 /* UIColor + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1DBEC425B99C5100ABEF75 /* UIColor + Extension.swift */; };
 		2C1DBEC825B99E8300ABEF75 /* Label + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1DBEC725B99E8300ABEF75 /* Label + Extension.swift */; };
 		2C1DBECB25B99F9700ABEF75 /* UIImageView + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1DBECA25B99F9700ABEF75 /* UIImageView + Extension.swift */; };
+		2C1DBED125B9A33800ABEF75 /* ButtonFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1DBED025B9A33800ABEF75 /* ButtonFormView.swift */; };
+		2C1DBED525B9A55100ABEF75 /* Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1DBED425B9A55100ABEF75 /* Constraints.swift */; };
+		2C1DBED925B9B27F00ABEF75 /* StackView + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1DBED825B9B27F00ABEF75 /* StackView + Extension.swift */; };
 		578E067F25B989E8001FCDB6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 578E067E25B989E8001FCDB6 /* AppDelegate.swift */; };
 		578E068125B989E8001FCDB6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 578E068025B989E8001FCDB6 /* SceneDelegate.swift */; };
 		578E068325B989E8001FCDB6 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 578E068225B989E8001FCDB6 /* AuthViewController.swift */; };
@@ -25,6 +28,9 @@
 		2C1DBEC425B99C5100ABEF75 /* UIColor + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor + Extension.swift"; sourceTree = "<group>"; };
 		2C1DBEC725B99E8300ABEF75 /* Label + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Label + Extension.swift"; sourceTree = "<group>"; };
 		2C1DBECA25B99F9700ABEF75 /* UIImageView + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView + Extension.swift"; sourceTree = "<group>"; };
+		2C1DBED025B9A33800ABEF75 /* ButtonFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonFormView.swift; sourceTree = "<group>"; };
+		2C1DBED425B9A55100ABEF75 /* Constraints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constraints.swift; sourceTree = "<group>"; };
+		2C1DBED825B9B27F00ABEF75 /* StackView + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StackView + Extension.swift"; sourceTree = "<group>"; };
 		578E067B25B989E8001FCDB6 /* BanGipsChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BanGipsChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		578E067E25B989E8001FCDB6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		578E068025B989E8001FCDB6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -45,6 +51,37 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2C1DBECD25B9A16600ABEF75 /* UIKit */ = {
+			isa = PBXGroup;
+			children = (
+				2C1DBEBE25B9973200ABEF75 /* UIButton + Extension.swift */,
+				2C1DBED825B9B27F00ABEF75 /* StackView + Extension.swift */,
+				2C1DBECA25B99F9700ABEF75 /* UIImageView + Extension.swift */,
+				2C1DBEC725B99E8300ABEF75 /* Label + Extension.swift */,
+				2C1DBEC125B99A2500ABEF75 /* UIFont + Extension.swift */,
+				2C1DBEC425B99C5100ABEF75 /* UIColor + Extension.swift */,
+			);
+			path = UIKit;
+			sourceTree = "<group>";
+		};
+		2C1DBECE25B9A17100ABEF75 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				2C1DBED025B9A33800ABEF75 /* ButtonFormView.swift */,
+				2C1DBED325B9A53A00ABEF75 /* Constraints */,
+				2C1DBECD25B9A16600ABEF75 /* UIKit */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		2C1DBED325B9A53A00ABEF75 /* Constraints */ = {
+			isa = PBXGroup;
+			children = (
+				2C1DBED425B9A55100ABEF75 /* Constraints.swift */,
+			);
+			path = Constraints;
+			sourceTree = "<group>";
+		};
 		578E067225B989E8001FCDB6 = {
 			isa = PBXGroup;
 			children = (
@@ -67,11 +104,7 @@
 				578E067E25B989E8001FCDB6 /* AppDelegate.swift */,
 				578E068025B989E8001FCDB6 /* SceneDelegate.swift */,
 				578E068225B989E8001FCDB6 /* AuthViewController.swift */,
-				2C1DBEBE25B9973200ABEF75 /* UIButton + Extension.swift */,
-				2C1DBECA25B99F9700ABEF75 /* UIImageView + Extension.swift */,
-				2C1DBEC725B99E8300ABEF75 /* Label + Extension.swift */,
-				2C1DBEC125B99A2500ABEF75 /* UIFont + Extension.swift */,
-				2C1DBEC425B99C5100ABEF75 /* UIColor + Extension.swift */,
+				2C1DBECE25B9A17100ABEF75 /* Extensions */,
 				578E068725B989E9001FCDB6 /* Assets.xcassets */,
 				578E068925B989E9001FCDB6 /* LaunchScreen.storyboard */,
 				578E068C25B989E9001FCDB6 /* Info.plist */,
@@ -150,7 +183,10 @@
 			files = (
 				2C1DBEC225B99A2500ABEF75 /* UIFont + Extension.swift in Sources */,
 				578E068325B989E8001FCDB6 /* AuthViewController.swift in Sources */,
+				2C1DBED525B9A55100ABEF75 /* Constraints.swift in Sources */,
+				2C1DBED925B9B27F00ABEF75 /* StackView + Extension.swift in Sources */,
 				2C1DBEC825B99E8300ABEF75 /* Label + Extension.swift in Sources */,
+				2C1DBED125B9A33800ABEF75 /* ButtonFormView.swift in Sources */,
 				578E067F25B989E8001FCDB6 /* AppDelegate.swift in Sources */,
 				2C1DBECB25B99F9700ABEF75 /* UIImageView + Extension.swift in Sources */,
 				2C1DBEC525B99C5100ABEF75 /* UIColor + Extension.swift in Sources */,

@@ -22,9 +22,31 @@ class AuthViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
+        view.backgroundColor = .systemBackground
+        setupConstaints()
     }
 
+    private func setupConstaints() {
+        logoImageView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(logoImageView)
+        let googleView = ButtonFormView(label: googleLabel, button: googleButton)
+        let emailView = ButtonFormView(label: emailLabel, button: emailButton)
+        let loginView = ButtonFormView(label: alreadyLabel, button: loginButton)
+        
+        let stackView = UIStackView(arrangedSubviews: [googleView, emailView, loginView], axis: .vertical, spasing: 100)
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        
+        
+        view.addSubview(stackView)
+        
+        logoImageView.topAnchor.constraint(equalTo: view.topAnchor, constant: 160).isActive = true
+        logoImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        
+        stackView.topAnchor.constraint(equalTo: logoImageView.bottomAnchor, constant: 160).isActive = true
+        
+        stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40).isActive = true
+        stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40).isActive = true
+    }
 
 }
 
@@ -41,7 +63,9 @@ import SwiftUI
 struct ViewControllerProvider: PreviewProvider {
     
     static var previews: some View {
-        ContainerView().edgesIgnoringSafeArea(.all)
+        Group {
+            ContainerView().edgesIgnoringSafeArea(.all)
+        }
     }
     
     struct ContainerView: UIViewControllerRepresentable {
