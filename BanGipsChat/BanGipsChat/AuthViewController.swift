@@ -17,7 +17,7 @@ class AuthViewController: UIViewController {
     
     let googleButton = UIButton(title: "Google", titleColor: .black, backgroundColor: .white, isShadow: true)
     let emailButton = UIButton(title: "Email", titleColor: .white, backgroundColor: .buttonDark())
-    let loginButton = UIButton(title: "Email", titleColor: .buttonRed(), backgroundColor: .white, isShadow: true)
+    let loginButton = UIButton(title: "Login", titleColor: .buttonRed(), backgroundColor: .white, isShadow: true)
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,7 +25,10 @@ class AuthViewController: UIViewController {
         view.backgroundColor = .systemBackground
         setupConstaints()
     }
+}
 
+// MARK: Constraints
+extension AuthViewController {
     private func setupConstaints() {
         logoImageView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(logoImageView)
@@ -33,9 +36,8 @@ class AuthViewController: UIViewController {
         let emailView = ButtonFormView(label: emailLabel, button: emailButton)
         let loginView = ButtonFormView(label: alreadyLabel, button: loginButton)
         
-        let stackView = UIStackView(arrangedSubviews: [googleView, emailView, loginView], axis: .vertical, spasing: 100)
+        let stackView = UIStackView(arrangedSubviews: [googleView, emailView, loginView], axis: .vertical, spasing: 40)
         stackView.translatesAutoresizingMaskIntoConstraints = false
-        
         
         view.addSubview(stackView)
         
@@ -47,9 +49,7 @@ class AuthViewController: UIViewController {
         stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40).isActive = true
         stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40).isActive = true
     }
-
 }
-
 
 
 

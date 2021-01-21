@@ -12,7 +12,7 @@ extension UIStackView {
     convenience init(arrangedSubviews: [UIView], axis: NSLayoutConstraint.Axis, spasing: CGFloat) {
         self.init(arrangedSubviews: arrangedSubviews)
         self.axis = axis
-        self.spacing = spacing
+        self.spacing = spasing
     }
     
 }
