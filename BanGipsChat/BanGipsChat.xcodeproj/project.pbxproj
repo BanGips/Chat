@@ -19,6 +19,9 @@
 		2CA7E05D25BAF85C00DF49AA /* SetupProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA7E05C25BAF85C00DF49AA /* SetupProfileViewController.swift */; };
 		2CA7E06025BAFBE900DF49AA /* AddPhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA7E05F25BAFBE900DF49AA /* AddPhotoView.swift */; };
 		2CA7E06425BB0B2600DF49AA /* SegmentedControl + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA7E06325BB0B2600DF49AA /* SegmentedControl + Extension.swift */; };
+		2CC72D1C25BB1937008A4571 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC72D1B25BB1937008A4571 /* ListViewController.swift */; };
+		2CC72D2325BB1D3B008A4571 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC72D2225BB1D3B008A4571 /* MainTabBarController.swift */; };
+		2CC72D2625BB1D7F008A4571 /* PeopleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC72D2525BB1D7F008A4571 /* PeopleViewController.swift */; };
 		2CDFE7F325B9C7230060CE9A /* SingUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CDFE7F225B9C7230060CE9A /* SingUpViewController.swift */; };
 		2CDFE7F625B9CA7D0060CE9A /* OneLineTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CDFE7F525B9CA7D0060CE9A /* OneLineTextField.swift */; };
 		578E067F25B989E8001FCDB6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 578E067E25B989E8001FCDB6 /* AppDelegate.swift */; };
@@ -41,6 +44,9 @@
 		2CA7E05C25BAF85C00DF49AA /* SetupProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupProfileViewController.swift; sourceTree = "<group>"; };
 		2CA7E05F25BAFBE900DF49AA /* AddPhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPhotoView.swift; sourceTree = "<group>"; };
 		2CA7E06325BB0B2600DF49AA /* SegmentedControl + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SegmentedControl + Extension.swift"; sourceTree = "<group>"; };
+		2CC72D1B25BB1937008A4571 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
+		2CC72D2225BB1D3B008A4571 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
+		2CC72D2525BB1D7F008A4571 /* PeopleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleViewController.swift; sourceTree = "<group>"; };
 		2CDFE7F225B9C7230060CE9A /* SingUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingUpViewController.swift; sourceTree = "<group>"; };
 		2CDFE7F525B9CA7D0060CE9A /* OneLineTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneLineTextField.swift; sourceTree = "<group>"; };
 		578E067B25B989E8001FCDB6 /* BanGipsChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BanGipsChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -97,6 +103,27 @@
 			path = Constraints;
 			sourceTree = "<group>";
 		};
+		2CA7E06925BB18CE00DF49AA /* SingIn&Auth */ = {
+			isa = PBXGroup;
+			children = (
+				578E068225B989E8001FCDB6 /* AuthViewController.swift */,
+				2CDFE7F225B9C7230060CE9A /* SingUpViewController.swift */,
+				2C26057825B9E58000C38BE4 /* LoginViewController.swift */,
+				2CA7E05C25BAF85C00DF49AA /* SetupProfileViewController.swift */,
+			);
+			path = "SingIn&Auth";
+			sourceTree = "<group>";
+		};
+		2CA7E06A25BB18FE00DF49AA /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				2CC72D2225BB1D3B008A4571 /* MainTabBarController.swift */,
+				2CC72D1B25BB1937008A4571 /* ListViewController.swift */,
+				2CC72D2525BB1D7F008A4571 /* PeopleViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
 		578E067225B989E8001FCDB6 = {
 			isa = PBXGroup;
 			children = (
@@ -118,10 +145,8 @@
 			children = (
 				578E067E25B989E8001FCDB6 /* AppDelegate.swift */,
 				578E068025B989E8001FCDB6 /* SceneDelegate.swift */,
-				578E068225B989E8001FCDB6 /* AuthViewController.swift */,
-				2CDFE7F225B9C7230060CE9A /* SingUpViewController.swift */,
-				2C26057825B9E58000C38BE4 /* LoginViewController.swift */,
-				2CA7E05C25BAF85C00DF49AA /* SetupProfileViewController.swift */,
+				2CA7E06A25BB18FE00DF49AA /* Controllers */,
+				2CA7E06925BB18CE00DF49AA /* SingIn&Auth */,
 				2C1DBECE25B9A17100ABEF75 /* Extensions */,
 				578E068725B989E9001FCDB6 /* Assets.xcassets */,
 				578E068925B989E9001FCDB6 /* LaunchScreen.storyboard */,
@@ -204,6 +229,7 @@
 				578E068325B989E8001FCDB6 /* AuthViewController.swift in Sources */,
 				2CA7E05D25BAF85C00DF49AA /* SetupProfileViewController.swift in Sources */,
 				2C1DBED525B9A55100ABEF75 /* Constraints.swift in Sources */,
+				2CC72D2625BB1D7F008A4571 /* PeopleViewController.swift in Sources */,
 				2C1DBED925B9B27F00ABEF75 /* StackView + Extension.swift in Sources */,
 				2C1DBEC825B99E8300ABEF75 /* Label + Extension.swift in Sources */,
 				2C1DBED125B9A33800ABEF75 /* ButtonFormView.swift in Sources */,
@@ -212,7 +238,9 @@
 				2C1DBEC525B99C5100ABEF75 /* UIColor + Extension.swift in Sources */,
 				2CA7E06025BAFBE900DF49AA /* AddPhotoView.swift in Sources */,
 				578E068125B989E8001FCDB6 /* SceneDelegate.swift in Sources */,
+				2CC72D2325BB1D3B008A4571 /* MainTabBarController.swift in Sources */,
 				2CDFE7F325B9C7230060CE9A /* SingUpViewController.swift in Sources */,
+				2CC72D1C25BB1937008A4571 /* ListViewController.swift in Sources */,
 				2CDFE7F625B9CA7D0060CE9A /* OneLineTextField.swift in Sources */,
 				2C1DBEBF25B9973200ABEF75 /* UIButton + Extension.swift in Sources */,
 				2CA7E06425BB0B2600DF49AA /* SegmentedControl + Extension.swift in Sources */,
