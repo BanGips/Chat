@@ -16,6 +16,9 @@
 		2C1DBED525B9A55100ABEF75 /* Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1DBED425B9A55100ABEF75 /* Constraints.swift */; };
 		2C1DBED925B9B27F00ABEF75 /* StackView + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1DBED825B9B27F00ABEF75 /* StackView + Extension.swift */; };
 		2C26057925B9E58000C38BE4 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C26057825B9E58000C38BE4 /* LoginViewController.swift */; };
+		2CA7E05D25BAF85C00DF49AA /* SetupProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA7E05C25BAF85C00DF49AA /* SetupProfileViewController.swift */; };
+		2CA7E06025BAFBE900DF49AA /* AddPhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA7E05F25BAFBE900DF49AA /* AddPhotoView.swift */; };
+		2CA7E06425BB0B2600DF49AA /* SegmentedControl + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA7E06325BB0B2600DF49AA /* SegmentedControl + Extension.swift */; };
 		2CDFE7F325B9C7230060CE9A /* SingUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CDFE7F225B9C7230060CE9A /* SingUpViewController.swift */; };
 		2CDFE7F625B9CA7D0060CE9A /* OneLineTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CDFE7F525B9CA7D0060CE9A /* OneLineTextField.swift */; };
 		578E067F25B989E8001FCDB6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 578E067E25B989E8001FCDB6 /* AppDelegate.swift */; };
@@ -35,6 +38,9 @@
 		2C1DBED425B9A55100ABEF75 /* Constraints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constraints.swift; sourceTree = "<group>"; };
 		2C1DBED825B9B27F00ABEF75 /* StackView + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StackView + Extension.swift"; sourceTree = "<group>"; };
 		2C26057825B9E58000C38BE4 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		2CA7E05C25BAF85C00DF49AA /* SetupProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupProfileViewController.swift; sourceTree = "<group>"; };
+		2CA7E05F25BAFBE900DF49AA /* AddPhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPhotoView.swift; sourceTree = "<group>"; };
+		2CA7E06325BB0B2600DF49AA /* SegmentedControl + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SegmentedControl + Extension.swift"; sourceTree = "<group>"; };
 		2CDFE7F225B9C7230060CE9A /* SingUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingUpViewController.swift; sourceTree = "<group>"; };
 		2CDFE7F525B9CA7D0060CE9A /* OneLineTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneLineTextField.swift; sourceTree = "<group>"; };
 		578E067B25B989E8001FCDB6 /* BanGipsChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BanGipsChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -66,6 +72,7 @@
 				2C1DBEC725B99E8300ABEF75 /* Label + Extension.swift */,
 				2C1DBEC125B99A2500ABEF75 /* UIFont + Extension.swift */,
 				2C1DBEC425B99C5100ABEF75 /* UIColor + Extension.swift */,
+				2CA7E06325BB0B2600DF49AA /* SegmentedControl + Extension.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -75,6 +82,7 @@
 			children = (
 				2C1DBED025B9A33800ABEF75 /* ButtonFormView.swift */,
 				2CDFE7F525B9CA7D0060CE9A /* OneLineTextField.swift */,
+				2CA7E05F25BAFBE900DF49AA /* AddPhotoView.swift */,
 				2C1DBED325B9A53A00ABEF75 /* Constraints */,
 				2C1DBECD25B9A16600ABEF75 /* UIKit */,
 			);
@@ -113,6 +121,7 @@
 				578E068225B989E8001FCDB6 /* AuthViewController.swift */,
 				2CDFE7F225B9C7230060CE9A /* SingUpViewController.swift */,
 				2C26057825B9E58000C38BE4 /* LoginViewController.swift */,
+				2CA7E05C25BAF85C00DF49AA /* SetupProfileViewController.swift */,
 				2C1DBECE25B9A17100ABEF75 /* Extensions */,
 				578E068725B989E9001FCDB6 /* Assets.xcassets */,
 				578E068925B989E9001FCDB6 /* LaunchScreen.storyboard */,
@@ -193,6 +202,7 @@
 				2C26057925B9E58000C38BE4 /* LoginViewController.swift in Sources */,
 				2C1DBEC225B99A2500ABEF75 /* UIFont + Extension.swift in Sources */,
 				578E068325B989E8001FCDB6 /* AuthViewController.swift in Sources */,
+				2CA7E05D25BAF85C00DF49AA /* SetupProfileViewController.swift in Sources */,
 				2C1DBED525B9A55100ABEF75 /* Constraints.swift in Sources */,
 				2C1DBED925B9B27F00ABEF75 /* StackView + Extension.swift in Sources */,
 				2C1DBEC825B99E8300ABEF75 /* Label + Extension.swift in Sources */,
@@ -200,10 +210,12 @@
 				578E067F25B989E8001FCDB6 /* AppDelegate.swift in Sources */,
 				2C1DBECB25B99F9700ABEF75 /* UIImageView + Extension.swift in Sources */,
 				2C1DBEC525B99C5100ABEF75 /* UIColor + Extension.swift in Sources */,
+				2CA7E06025BAFBE900DF49AA /* AddPhotoView.swift in Sources */,
 				578E068125B989E8001FCDB6 /* SceneDelegate.swift in Sources */,
 				2CDFE7F325B9C7230060CE9A /* SingUpViewController.swift in Sources */,
 				2CDFE7F625B9CA7D0060CE9A /* OneLineTextField.swift in Sources */,
 				2C1DBEBF25B9973200ABEF75 /* UIButton + Extension.swift in Sources */,
+				2CA7E06425BB0B2600DF49AA /* SegmentedControl + Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -10,7 +10,7 @@ import UIKit
 class LoginViewController: UIViewController {
     
     
-    let welcomeLabel = UILabel(text: "Welcome Back", font: .avenir26())
+    let welcomeLabel = UILabel(text: "Welcome Back!", font: .avenir26())
     let loginWithLabel = UILabel(text: "Login with")
     let orLabel = UILabel(text: "or")
     let emailLabel = UILabel(text: "Email")
@@ -33,8 +33,9 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        setupConstraints()
         view.backgroundColor = .systemBackground
+        setupConstraints()
+        googleButton.customizeGoogleButton()
     }
 
 }

@@ -24,6 +24,7 @@ class AuthViewController: UIViewController {
         
         view.backgroundColor = .systemBackground
         setupConstaints()
+        googleButton.customizeGoogleButton()
     }
 }
 
