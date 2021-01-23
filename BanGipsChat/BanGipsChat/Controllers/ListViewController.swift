@@ -59,18 +59,15 @@ class ListViewController: UIViewController {
         reloadData()
     }
     
-    
-    
     private func setupCollectionView() {
         collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: createComposLayout())
         collectionView.autoresizingMask = [ .flexibleWidth, .flexibleHeight]
-        collectionView.backgroundColor = .brown
+        collectionView.backgroundColor = .mainWhite()
         view.addSubview(collectionView)
         
         collectionView.register(forType: ActiveChatCell.self)
         collectionView.register(forType: WaitingChatCell.self)
-        collectionView.register(SectionHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: SectionHeader.reuseID)
-        
+        collectionView.registerHeader(forType: SectionHeader.self)
     }
     
     // 5
@@ -116,13 +113,12 @@ extension ListViewController {
                 return cell
             case .activeChats:
                 let cell = collectionView.dequeueReusableCell(ActiveChatCell.self, for: indexPath)
-                cell.configure(with: chat) 
+                cell.configure(with: chat)
                 return cell
             }
         })
         dataSource?.supplementaryViewProvider = { collectionView, kind, indexPath in
             let sectionHeader = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: SectionHeader.reuseID, for: indexPath) as! SectionHeader
-            sectionHeader.backgroundColor = .blue
 
             guard let section = Sections(rawValue: indexPath.section) else { fatalError("No sections")}
 
@@ -184,8 +180,8 @@ extension ListViewController {
         
         let section = NSCollectionLayoutSection(group: group)
         section.interGroupSpacing = 8
-        section.contentInsets = NSDirectionalEdgeInsets(top: 16, leading: 20, bottom: 0, trailing: 10)
-        
+        section.contentInsets = NSDirectionalEdgeInsets(top: 16, leading: 20, bottom: 0, trailing: 20)
+
         let sectionHeader = createSectionHeader()
         section.boundarySupplementaryItems = [sectionHeader]
         
@@ -199,6 +195,8 @@ extension ListViewController {
         return sectionHeared
     }
 }
+
+
 
 
 // MARK: - SwiftUI
@@ -219,10 +217,8 @@ struct ListControllerProvider: PreviewProvider {
         func makeUIViewController(context: Context) -> some UIViewController {
             return viewController
         }
-        
-        func updateUIViewController(_ uiViewController: UIViewControllerType, context: Context) {
-        
-        }
+
+        func updateUIViewController(_ uiViewController: UIViewControllerType, context: Context) { }
     }
 }
 
