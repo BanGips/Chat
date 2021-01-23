@@ -58,26 +58,8 @@ class ListViewController: UIViewController {
         collectionView.backgroundColor = .mainWhite()
         view.addSubview(collectionView)
         
-        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cellID")
+        collectionView.register(forType: ActiveChatCell.self)
         collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cellID2")
-    }
-    
-    // 4
-    private func createDataSource() {
-        dataSource = UICollectionViewDiffableDataSource<Sections, MChat>(collectionView: collectionView, cellProvider: { (collectionView, indexPath, chat) -> UICollectionViewCell? in
-            guard let section = Sections(rawValue: indexPath.section) else { fatalError("No Sections") }
-            
-            switch section {
-            case .waitingChats:
-                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellID2", for: indexPath)
-                cell.backgroundColor = .red
-                return cell
-            case .activeChats:
-                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellID", for: indexPath)
-                cell.backgroundColor = .blue
-                return cell
-            }
-        })
     }
     
     // 5
@@ -108,6 +90,29 @@ extension ListViewController: UISearchBarDelegate {
     }
 }
 
+//MARK: - SetupDataSource
+extension ListViewController {
+    
+    // 4
+    private func createDataSource() {
+        dataSource = UICollectionViewDiffableDataSource<Sections, MChat>(collectionView: collectionView, cellProvider: { (collectionView, indexPath, chat) -> UICollectionViewCell? in
+            guard let section = Sections(rawValue: indexPath.section) else { fatalError("No Sections") }
+            
+            switch section {
+            case .waitingChats:
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellID2", for: indexPath)
+                cell.backgroundColor = .red
+                return cell
+            case .activeChats:
+                let cell = collectionView.dequeueReusableCell(ActiveChatCell.self, for: indexPath)
+                cell.configure(with: chat)
+                return cell
+            }
+        })
+    }
+}
+
+// MARK: - Setup Layout
 extension ListViewController {
     
     // 1
