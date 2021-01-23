@@ -25,7 +25,7 @@ class ActiveChatCell: UICollectionViewCell {
     }
     
     func configure(with value: MChat) {
-        friendImageView.image = UIImage(named: "")
+        friendImageView.image = UIImage(named: "human1")
         friendName.text = value.username
         lastMessage.text = value.lastMessage
         
@@ -53,13 +53,11 @@ extension ActiveChatCell {
         
         friendImageView.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
         friendImageView.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
-        friendImageView.heightAnchor.constraint(equalToConstant: 78).isActive = true
-        friendImageView.widthAnchor.constraint(equalToConstant: 78).isActive = true
+        friendImageView.anchorConstantSize(size: 78)
         
         gradientView.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
         gradientView.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
-        gradientView.heightAnchor.constraint(equalToConstant: 78).isActive = true
-        gradientView.widthAnchor.constraint(equalToConstant: 8).isActive = true
+        gradientView.anchorWidthAndHeightSize(heightSize: 78, widthSize: 8)
         
         friendName.topAnchor.constraint(equalTo: self.topAnchor, constant: 12).isActive = true
         friendName.leadingAnchor.constraint(equalTo: friendImageView.trailingAnchor, constant: 16).isActive = true

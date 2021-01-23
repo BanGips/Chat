@@ -30,6 +30,7 @@
 		2CF20CBF25BC158800524C22 /* ActiveChatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF20CBE25BC158800524C22 /* ActiveChatCell.swift */; };
 		2CF20CC325BC1A7C00524C22 /* Cell + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF20CC225BC1A7C00524C22 /* Cell + Extension.swift */; };
 		2CF20CCB25BC28BE00524C22 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF20CCA25BC28BE00524C22 /* GradientView.swift */; };
+		2CF20CD125BC2C9900524C22 /* WaitingChatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF20CD025BC2C9900524C22 /* WaitingChatCell.swift */; };
 		578E067F25B989E8001FCDB6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 578E067E25B989E8001FCDB6 /* AppDelegate.swift */; };
 		578E068125B989E8001FCDB6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 578E068025B989E8001FCDB6 /* SceneDelegate.swift */; };
 		578E068325B989E8001FCDB6 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 578E068225B989E8001FCDB6 /* AuthViewController.swift */; };
@@ -61,6 +62,7 @@
 		2CF20CBE25BC158800524C22 /* ActiveChatCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveChatCell.swift; sourceTree = "<group>"; };
 		2CF20CC225BC1A7C00524C22 /* Cell + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Cell + Extension.swift"; sourceTree = "<group>"; };
 		2CF20CCA25BC28BE00524C22 /* GradientView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
+		2CF20CD025BC2C9900524C22 /* WaitingChatCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitingChatCell.swift; sourceTree = "<group>"; };
 		578E067B25B989E8001FCDB6 /* BanGipsChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BanGipsChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		578E067E25B989E8001FCDB6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		578E068025B989E8001FCDB6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -146,6 +148,7 @@
 			isa = PBXGroup;
 			children = (
 				2CF20CBE25BC158800524C22 /* ActiveChatCell.swift */,
+				2CF20CD025BC2C9900524C22 /* WaitingChatCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -258,6 +261,7 @@
 				2CA7E05D25BAF85C00DF49AA /* SetupProfileViewController.swift in Sources */,
 				2C1DBED525B9A55100ABEF75 /* Constraints.swift in Sources */,
 				2CF20CC325BC1A7C00524C22 /* Cell + Extension.swift in Sources */,
+				2CF20CD125BC2C9900524C22 /* WaitingChatCell.swift in Sources */,
 				2CC72D2F25BB53B7008A4571 /* Bundle-Decodable.swift in Sources */,
 				2CC72D2625BB1D7F008A4571 /* PeopleViewController.swift in Sources */,
 				2C1DBED925B9B27F00ABEF75 /* StackView + Extension.swift in Sources */,

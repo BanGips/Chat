@@ -24,6 +24,16 @@ extension UIView {
         heightAnchor.constraint(equalTo: view.heightAnchor).isActive = true
     }
     
+    func anchorWidthAndHeightSize(heightSize: CGFloat, widthSize: CGFloat ) {
+        widthAnchor.constraint(equalToConstant: widthSize).isActive = true
+        heightAnchor.constraint(equalToConstant: heightSize).isActive = true
+    }
+    
+    func anchorConstantSize(size: CGFloat) {
+        widthAnchor.constraint(equalToConstant: size).isActive = true
+        heightAnchor.constraint(equalToConstant: size).isActive = true
+    }
+    
     func anchor(top: NSLayoutYAxisAnchor?, leading: NSLayoutXAxisAnchor?, bottom: NSLayoutYAxisAnchor?, trailing: NSLayoutXAxisAnchor?, padding: UIEdgeInsets = .zero, size: CGSize = .zero) {
         
         if let top = top {

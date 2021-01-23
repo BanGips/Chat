@@ -59,7 +59,8 @@ class ListViewController: UIViewController {
         view.addSubview(collectionView)
         
         collectionView.register(forType: ActiveChatCell.self)
-        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cellID2")
+        collectionView.register(forType: WaitingChatCell.self)
+        
     }
     
     // 5
@@ -100,8 +101,8 @@ extension ListViewController {
             
             switch section {
             case .waitingChats:
-                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellID2", for: indexPath)
-                cell.backgroundColor = .red
+                let cell = collectionView.dequeueReusableCell(WaitingChatCell.self, for: indexPath)
+                cell.configure(with: chat)
                 return cell
             case .activeChats:
                 let cell = collectionView.dequeueReusableCell(ActiveChatCell.self, for: indexPath)
