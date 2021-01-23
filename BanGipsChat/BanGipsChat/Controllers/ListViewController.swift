@@ -34,6 +34,15 @@ class ListViewController: UIViewController {
     enum Sections: Int, CaseIterable {
         case waitingChats
         case activeChats
+        
+        func description() -> String {
+            switch self {
+            case .waitingChats:
+                return "Waiting Chats"
+            case .activeChats:
+                return "Active Chats"
+            }
+        }
     }
     
     let activeChats = Bundle.main.decode([MChat].self, from: "activeChats.json")
@@ -55,11 +64,12 @@ class ListViewController: UIViewController {
     private func setupCollectionView() {
         collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: createComposLayout())
         collectionView.autoresizingMask = [ .flexibleWidth, .flexibleHeight]
-        collectionView.backgroundColor = .mainWhite()
+        collectionView.backgroundColor = .brown
         view.addSubview(collectionView)
         
         collectionView.register(forType: ActiveChatCell.self)
         collectionView.register(forType: WaitingChatCell.self)
+        collectionView.register(SectionHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: SectionHeader.reuseID)
         
     }
     
@@ -106,10 +116,19 @@ extension ListViewController {
                 return cell
             case .activeChats:
                 let cell = collectionView.dequeueReusableCell(ActiveChatCell.self, for: indexPath)
-                cell.configure(with: chat)
+                cell.configure(with: chat) 
                 return cell
             }
         })
+        dataSource?.supplementaryViewProvider = { collectionView, kind, indexPath in
+            let sectionHeader = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: SectionHeader.reuseID, for: indexPath) as! SectionHeader
+            sectionHeader.backgroundColor = .blue
+
+            guard let section = Sections(rawValue: indexPath.section) else { fatalError("No sections")}
+
+            sectionHeader.configure(text: section.description(), font: .laoSangamMN20(), textColor: #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1))
+            return sectionHeader
+        }
     }
 }
 
@@ -129,6 +148,11 @@ extension ListViewController {
                 return self.createActiveChats()
             }
         }
+        
+        let config = UICollectionViewCompositionalLayoutConfiguration()
+        config.interSectionSpacing = 20
+        layout.configuration = config
+        
         return layout
     }
     
@@ -145,6 +169,9 @@ extension ListViewController {
         section.contentInsets = NSDirectionalEdgeInsets(top: 16, leading: 20, bottom: 0, trailing: 20)
         section.orthogonalScrollingBehavior = .continuous
         
+        let sectionHeader = createSectionHeader()
+        section.boundarySupplementaryItems = [sectionHeader]
+        
         return section
     }
     
@@ -159,7 +186,17 @@ extension ListViewController {
         section.interGroupSpacing = 8
         section.contentInsets = NSDirectionalEdgeInsets(top: 16, leading: 20, bottom: 0, trailing: 10)
         
+        let sectionHeader = createSectionHeader()
+        section.boundarySupplementaryItems = [sectionHeader]
+        
         return section
+    }
+    
+    private func createSectionHeader() -> NSCollectionLayoutBoundarySupplementaryItem {
+        let sectionHearedSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .estimated(1))
+        let sectionHeared = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: sectionHearedSize,
+                                                                        elementKind: UICollectionView.elementKindSectionHeader, alignment: .top)
+        return sectionHeared
     }
 }
 
