@@ -32,6 +32,8 @@
 		2CF20CCB25BC28BE00524C22 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF20CCA25BC28BE00524C22 /* GradientView.swift */; };
 		2CF20CD125BC2C9900524C22 /* WaitingChatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF20CD025BC2C9900524C22 /* WaitingChatCell.swift */; };
 		2CF20CD425BC37CC00524C22 /* SectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF20CD325BC37CC00524C22 /* SectionHeader.swift */; };
+		2CFE1B1A25BC6E9400F6FA0C /* users.json in Resources */ = {isa = PBXBuildFile; fileRef = 2CFE1B1925BC6E9400F6FA0C /* users.json */; };
+		2CFE1B1D25BC701C00F6FA0C /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CFE1B1C25BC701C00F6FA0C /* Model.swift */; };
 		578E067F25B989E8001FCDB6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 578E067E25B989E8001FCDB6 /* AppDelegate.swift */; };
 		578E068125B989E8001FCDB6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 578E068025B989E8001FCDB6 /* SceneDelegate.swift */; };
 		578E068325B989E8001FCDB6 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 578E068225B989E8001FCDB6 /* AuthViewController.swift */; };
@@ -65,6 +67,8 @@
 		2CF20CCA25BC28BE00524C22 /* GradientView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		2CF20CD025BC2C9900524C22 /* WaitingChatCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitingChatCell.swift; sourceTree = "<group>"; };
 		2CF20CD325BC37CC00524C22 /* SectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeader.swift; sourceTree = "<group>"; };
+		2CFE1B1925BC6E9400F6FA0C /* users.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = users.json; sourceTree = "<group>"; };
+		2CFE1B1C25BC701C00F6FA0C /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		578E067B25B989E8001FCDB6 /* BanGipsChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BanGipsChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		578E067E25B989E8001FCDB6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		578E068025B989E8001FCDB6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -88,6 +92,7 @@
 		2C1DBECD25B9A16600ABEF75 /* UIKit */ = {
 			isa = PBXGroup;
 			children = (
+				2CFE1B1925BC6E9400F6FA0C /* users.json */,
 				2CC72D2A25BB5308008A4571 /* activeChats.json */,
 				2CC72D2925BB5307008A4571 /* waitingChats.json */,
 				2C1DBEBE25B9973200ABEF75 /* UIButton + Extension.swift */,
@@ -138,6 +143,7 @@
 		2CA7E06A25BB18FE00DF49AA /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				2CFE1B1825BC6E3200F6FA0C /* Header */,
 				2CF20CBD25BC156100524C22 /* Cell */,
 				2CC72D2225BB1D3B008A4571 /* MainTabBarController.swift */,
 				2CC72D1B25BB1937008A4571 /* ListViewController.swift */,
@@ -151,9 +157,16 @@
 			children = (
 				2CF20CBE25BC158800524C22 /* ActiveChatCell.swift */,
 				2CF20CD025BC2C9900524C22 /* WaitingChatCell.swift */,
-				2CF20CD325BC37CC00524C22 /* SectionHeader.swift */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		2CFE1B1825BC6E3200F6FA0C /* Header */ = {
+			isa = PBXGroup;
+			children = (
+				2CF20CD325BC37CC00524C22 /* SectionHeader.swift */,
+			);
+			path = Header;
 			sourceTree = "<group>";
 		};
 		578E067225B989E8001FCDB6 = {
@@ -177,6 +190,7 @@
 			children = (
 				578E067E25B989E8001FCDB6 /* AppDelegate.swift */,
 				578E068025B989E8001FCDB6 /* SceneDelegate.swift */,
+				2CFE1B1C25BC701C00F6FA0C /* Model.swift */,
 				2CA7E06A25BB18FE00DF49AA /* Controllers */,
 				2CA7E06925BB18CE00DF49AA /* SingIn&Auth */,
 				2C1DBECE25B9A17100ABEF75 /* Extensions */,
@@ -244,6 +258,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2CFE1B1A25BC6E9400F6FA0C /* users.json in Resources */,
 				2CC72D2B25BB5308008A4571 /* waitingChats.json in Resources */,
 				578E068B25B989E9001FCDB6 /* LaunchScreen.storyboard in Resources */,
 				578E068825B989E9001FCDB6 /* Assets.xcassets in Resources */,
@@ -258,6 +273,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2CFE1B1D25BC701C00F6FA0C /* Model.swift in Sources */,
 				2C26057925B9E58000C38BE4 /* LoginViewController.swift in Sources */,
 				2C1DBEC225B99A2500ABEF75 /* UIFont + Extension.swift in Sources */,
 				578E068325B989E8001FCDB6 /* AuthViewController.swift in Sources */,

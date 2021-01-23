@@ -7,21 +7,8 @@
 
 import UIKit
 
-//3
-struct MChat: Hashable, Decodable {
-    var username: String
-    var userImageString: String
-    var lastMessage: String
-    var id: Int
-    
-    func hash(into hasher: inout Hasher) {
-        hasher.combine(id)
-    }
-    
-    static func == (lhs: MChat, rhs: MChat) -> Bool {
-        return lhs.id == rhs.id
-    }
-}
+//3 model
+
 
 class ListViewController: UIViewController {
 
@@ -189,7 +176,7 @@ extension ListViewController {
     }
     
     private func createSectionHeader() -> NSCollectionLayoutBoundarySupplementaryItem {
-        let sectionHearedSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .estimated(1))
+        let sectionHearedSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .estimated(130))
         let sectionHeared = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: sectionHearedSize,
                                                                         elementKind: UICollectionView.elementKindSectionHeader, alignment: .top)
         return sectionHeared
