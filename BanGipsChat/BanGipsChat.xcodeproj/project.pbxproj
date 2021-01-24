@@ -35,6 +35,7 @@
 		2CF20CD425BC37CC00524C22 /* SectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF20CD325BC37CC00524C22 /* SectionHeader.swift */; };
 		2CFE1B1A25BC6E9400F6FA0C /* users.json in Resources */ = {isa = PBXBuildFile; fileRef = 2CFE1B1925BC6E9400F6FA0C /* users.json */; };
 		2CFE1B1D25BC701C00F6FA0C /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CFE1B1C25BC701C00F6FA0C /* Model.swift */; };
+		572071CD25BE156900F48069 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 572071CC25BE156900F48069 /* ProfileViewController.swift */; };
 		578E067F25B989E8001FCDB6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 578E067E25B989E8001FCDB6 /* AppDelegate.swift */; };
 		578E068125B989E8001FCDB6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 578E068025B989E8001FCDB6 /* SceneDelegate.swift */; };
 		578E068325B989E8001FCDB6 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 578E068225B989E8001FCDB6 /* AuthViewController.swift */; };
@@ -71,6 +72,7 @@
 		2CF20CD325BC37CC00524C22 /* SectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeader.swift; sourceTree = "<group>"; };
 		2CFE1B1925BC6E9400F6FA0C /* users.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = users.json; sourceTree = "<group>"; };
 		2CFE1B1C25BC701C00F6FA0C /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		572071CC25BE156900F48069 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		578E067B25B989E8001FCDB6 /* BanGipsChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BanGipsChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		578E067E25B989E8001FCDB6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		578E068025B989E8001FCDB6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -150,6 +152,7 @@
 				2CC72D2225BB1D3B008A4571 /* MainTabBarController.swift */,
 				2CC72D1B25BB1937008A4571 /* ListViewController.swift */,
 				2CC72D2525BB1D7F008A4571 /* PeopleViewController.swift */,
+				572071CC25BE156900F48069 /* ProfileViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -289,6 +292,7 @@
 				2C1DBED925B9B27F00ABEF75 /* StackView + Extension.swift in Sources */,
 				2C1DBEC825B99E8300ABEF75 /* Label + Extension.swift in Sources */,
 				2C1DBED125B9A33800ABEF75 /* ButtonFormView.swift in Sources */,
+				572071CD25BE156900F48069 /* ProfileViewController.swift in Sources */,
 				2CF20CD425BC37CC00524C22 /* SectionHeader.swift in Sources */,
 				578E067F25B989E8001FCDB6 /* AppDelegate.swift in Sources */,
 				2C1DBECB25B99F9700ABEF75 /* UIImageView + Extension.swift in Sources */,
@@ -445,7 +449,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6GTJ637UNQ;
 				INFOPLIST_FILE = BanGipsChat/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -465,7 +469,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6GTJ637UNQ;
 				INFOPLIST_FILE = BanGipsChat/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
