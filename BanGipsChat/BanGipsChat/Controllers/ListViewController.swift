@@ -120,15 +120,16 @@ extension ListViewController {
     
     // 1
     private func createComposLayout() -> UICollectionViewLayout {
-        let layout = UICollectionViewCompositionalLayout { (sectionInsex, layoutEnvironmemt) -> NSCollectionLayoutSection? in
+        
+        let layout = UICollectionViewCompositionalLayout { (sectionIndex, layoutEnvironmemt) -> NSCollectionLayoutSection? in
             
-            guard let section = Sections(rawValue: sectionInsex) else { fatalError("No Sections") }
+            guard let section = Sections(rawValue: sectionIndex) else { fatalError("No Sections") }
             
             switch section {
             case .waitingChats:
-                return self.createWaitingChats()
+                return self.createWaitingChatsSize()
             case .activeChats:
-                return self.createActiveChats()
+                return self.createActiveChatsSize()
             }
         }
         
@@ -140,7 +141,7 @@ extension ListViewController {
     }
     
     // 6
-    private func createWaitingChats() -> NSCollectionLayoutSection {
+    private func createWaitingChatsSize() -> NSCollectionLayoutSection {
         let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1))
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
         
@@ -158,7 +159,7 @@ extension ListViewController {
         return section
     }
     
-    private func createActiveChats() -> NSCollectionLayoutSection {
+    private func createActiveChatsSize() -> NSCollectionLayoutSection {
         let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1))
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
         

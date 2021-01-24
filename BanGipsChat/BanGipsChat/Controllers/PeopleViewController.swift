@@ -44,6 +44,7 @@ class PeopleViewController: UIViewController {
         
         collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cellID")
         collectionView.registerHeader(forType: SectionHeader.self)
+        collectionView.register(forType: UserCell.self)
     }
     
     private func reloadData() {
@@ -69,9 +70,9 @@ class PeopleViewController: UIViewController {
 extension PeopleViewController {
     
     private func createComposLayout() -> UICollectionViewLayout {
-        let layout = UICollectionViewCompositionalLayout { (sectionInsex, layoutEnvironmemt) -> NSCollectionLayoutSection? in
+        let layout = UICollectionViewCompositionalLayout { (sectionIndex, layoutEnvironmemt) -> NSCollectionLayoutSection? in
             
-            guard let section = Section(rawValue: sectionInsex) else { fatalError("No Sections") }
+            guard let section = Section(rawValue: sectionIndex) else { fatalError("No Sections") }
             
             switch section {
             case .users:
@@ -91,7 +92,7 @@ extension PeopleViewController {
         group.interItemSpacing = .fixed(15)
         
         let section = NSCollectionLayoutSection(group: group)
-        section.interGroupSpacing = 10
+        section.interGroupSpacing = 15
         section.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 15, bottom: 0, trailing: 15)
         
         let sectionHeader = createSectionHeader()
@@ -101,7 +102,7 @@ extension PeopleViewController {
     }
     
     private func createSectionHeader() -> NSCollectionLayoutBoundarySupplementaryItem {
-        let sectionHearedSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .estimated(1))
+        let sectionHearedSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .estimated(50))
         let sectionHeared = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: sectionHearedSize,
                                                                         elementKind: UICollectionView.elementKindSectionHeader, alignment: .top)
         
@@ -120,8 +121,8 @@ extension PeopleViewController {
             
             switch section {
             case .users:
-                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellID", for: indexPath)
-                cell.backgroundColor = .blue
+                let cell = collectionView.dequeueReusableCell(UserCell.self, for: indexPath)
+                cell.configure(with: chat)
                 return cell
             }
             

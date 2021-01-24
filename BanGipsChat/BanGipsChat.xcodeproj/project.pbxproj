@@ -16,6 +16,7 @@
 		2C1DBED525B9A55100ABEF75 /* Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1DBED425B9A55100ABEF75 /* Constraints.swift */; };
 		2C1DBED925B9B27F00ABEF75 /* StackView + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1DBED825B9B27F00ABEF75 /* StackView + Extension.swift */; };
 		2C26057925B9E58000C38BE4 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C26057825B9E58000C38BE4 /* LoginViewController.swift */; };
+		2C42089B25BD7D0100EFF07A /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C42089A25BD7D0100EFF07A /* UserCell.swift */; };
 		2CA7E05D25BAF85C00DF49AA /* SetupProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA7E05C25BAF85C00DF49AA /* SetupProfileViewController.swift */; };
 		2CA7E06025BAFBE900DF49AA /* AddPhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA7E05F25BAFBE900DF49AA /* AddPhotoView.swift */; };
 		2CA7E06425BB0B2600DF49AA /* SegmentedControl + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA7E06325BB0B2600DF49AA /* SegmentedControl + Extension.swift */; };
@@ -51,6 +52,7 @@
 		2C1DBED425B9A55100ABEF75 /* Constraints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constraints.swift; sourceTree = "<group>"; };
 		2C1DBED825B9B27F00ABEF75 /* StackView + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StackView + Extension.swift"; sourceTree = "<group>"; };
 		2C26057825B9E58000C38BE4 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		2C42089A25BD7D0100EFF07A /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
 		2CA7E05C25BAF85C00DF49AA /* SetupProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupProfileViewController.swift; sourceTree = "<group>"; };
 		2CA7E05F25BAFBE900DF49AA /* AddPhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPhotoView.swift; sourceTree = "<group>"; };
 		2CA7E06325BB0B2600DF49AA /* SegmentedControl + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SegmentedControl + Extension.swift"; sourceTree = "<group>"; };
@@ -157,6 +159,7 @@
 			children = (
 				2CF20CBE25BC158800524C22 /* ActiveChatCell.swift */,
 				2CF20CD025BC2C9900524C22 /* WaitingChatCell.swift */,
+				2C42089A25BD7D0100EFF07A /* UserCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -293,6 +296,7 @@
 				2CF20CCB25BC28BE00524C22 /* GradientView.swift in Sources */,
 				2CA7E06025BAFBE900DF49AA /* AddPhotoView.swift in Sources */,
 				578E068125B989E8001FCDB6 /* SceneDelegate.swift in Sources */,
+				2C42089B25BD7D0100EFF07A /* UserCell.swift in Sources */,
 				2CC72D2325BB1D3B008A4571 /* MainTabBarController.swift in Sources */,
 				2CDFE7F325B9C7230060CE9A /* SingUpViewController.swift in Sources */,
 				2CC72D1C25BB1937008A4571 /* ListViewController.swift in Sources */,

@@ -20,7 +20,6 @@ class SectionHeader: UICollectionReusableView {
         addSubview(title)
 
         title.fillSuperview()
-    
     }
 
     func configure(text: String, font: UIFont?, textColor: UIColor) {
