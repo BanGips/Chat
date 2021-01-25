@@ -13,15 +13,18 @@ class ProfileViewController: UIViewController {
     let imageView = UIImageView(image: #imageLiteral(resourceName: "human1"), contentMode: .scaleAspectFill)
     let nameLabel = UILabel(text: "PETER DAGGER", font: .systemFont(ofSize: 20, weight: .light))
     let aboutMeLabel = UILabel(text: "fasfasfasfasfasfasfasffsdfsdfsdfsdfsdfsdfsdfsdfsdfafafaf", font: .systemFont(ofSize: 16, weight: .light))
-    let myTextField = UITextField()
+    let myTextField = InsertableTextField()
+    
+    override func loadView() {
+        super.loadView()
+        setupConstraints()
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         view.backgroundColor = .lightGray
         customizeElements()
-        setupConstraints()
-        myTextField.borderStyle = .roundedRect
     }
     
     private func customizeElements() {
@@ -34,7 +37,15 @@ class ProfileViewController: UIViewController {
         aboutMeLabel.numberOfLines = 0
         containerView.backgroundColor = .mainWhite()
         containerView.layer.cornerRadius = 30
+        
+        if let button = myTextField.rightView as? UIButton {
+            button.addTarget(self, action: #selector(sendMessage), for: .touchUpInside)
+        }
     }
+    
+    @objc func sendMessage() {
+         print(#function)
+     }
     
 }
 

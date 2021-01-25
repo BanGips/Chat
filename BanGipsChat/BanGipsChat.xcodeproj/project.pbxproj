@@ -35,6 +35,7 @@
 		2CF20CD425BC37CC00524C22 /* SectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF20CD325BC37CC00524C22 /* SectionHeader.swift */; };
 		2CFE1B1A25BC6E9400F6FA0C /* users.json in Resources */ = {isa = PBXBuildFile; fileRef = 2CFE1B1925BC6E9400F6FA0C /* users.json */; };
 		2CFE1B1D25BC701C00F6FA0C /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CFE1B1C25BC701C00F6FA0C /* Model.swift */; };
+		571DC8FB25BF04B1006FED15 /* InsertableTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 571DC8FA25BF04B1006FED15 /* InsertableTextField.swift */; };
 		572071CD25BE156900F48069 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 572071CC25BE156900F48069 /* ProfileViewController.swift */; };
 		578E067F25B989E8001FCDB6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 578E067E25B989E8001FCDB6 /* AppDelegate.swift */; };
 		578E068125B989E8001FCDB6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 578E068025B989E8001FCDB6 /* SceneDelegate.swift */; };
@@ -72,6 +73,7 @@
 		2CF20CD325BC37CC00524C22 /* SectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeader.swift; sourceTree = "<group>"; };
 		2CFE1B1925BC6E9400F6FA0C /* users.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = users.json; sourceTree = "<group>"; };
 		2CFE1B1C25BC701C00F6FA0C /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		571DC8FA25BF04B1006FED15 /* InsertableTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsertableTextField.swift; sourceTree = "<group>"; };
 		572071CC25BE156900F48069 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		578E067B25B989E8001FCDB6 /* BanGipsChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BanGipsChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		578E067E25B989E8001FCDB6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -119,6 +121,7 @@
 				2CA7E05F25BAFBE900DF49AA /* AddPhotoView.swift */,
 				2CF20CC225BC1A7C00524C22 /* Cell + Extension.swift */,
 				2CF20CCA25BC28BE00524C22 /* GradientView.swift */,
+				571DC8FA25BF04B1006FED15 /* InsertableTextField.swift */,
 				2C1DBED325B9A53A00ABEF75 /* Constraints */,
 				2C1DBECD25B9A16600ABEF75 /* UIKit */,
 			);
@@ -283,6 +286,7 @@
 				2C26057925B9E58000C38BE4 /* LoginViewController.swift in Sources */,
 				2C1DBEC225B99A2500ABEF75 /* UIFont + Extension.swift in Sources */,
 				578E068325B989E8001FCDB6 /* AuthViewController.swift in Sources */,
+				571DC8FB25BF04B1006FED15 /* InsertableTextField.swift in Sources */,
 				2CA7E05D25BAF85C00DF49AA /* SetupProfileViewController.swift in Sources */,
 				2C1DBED525B9A55100ABEF75 /* Constraints.swift in Sources */,
 				2CF20CC325BC1A7C00524C22 /* Cell + Extension.swift in Sources */,
