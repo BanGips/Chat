@@ -1,0 +1,6 @@
+framework module Pods_BanGipsChat {
+  umbrella header "Pods-BanGipsChat-umbrella.h"
+
+  export *
+  module * { export * }
+}

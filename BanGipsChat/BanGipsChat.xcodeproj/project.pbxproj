@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2C04CA9925C359CE0021A6F8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C04CA9825C359CE0021A6F8 /* GoogleService-Info.plist */; };
 		2C1DBEBF25B9973200ABEF75 /* UIButton + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1DBEBE25B9973200ABEF75 /* UIButton + Extension.swift */; };
 		2C1DBEC225B99A2500ABEF75 /* UIFont + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1DBEC125B99A2500ABEF75 /* UIFont + Extension.swift */; };
 		2C1DBEC525B99C5100ABEF75 /* UIColor + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1DBEC425B99C5100ABEF75 /* UIColor + Extension.swift */; };
@@ -18,6 +19,7 @@
 		2C26057925B9E58000C38BE4 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C26057825B9E58000C38BE4 /* LoginViewController.swift */; };
 		2C42089B25BD7D0100EFF07A /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C42089A25BD7D0100EFF07A /* UserCell.swift */; };
 		2C575A5B25C0956000B11E43 /* ChatRequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C575A5A25C0956000B11E43 /* ChatRequestViewController.swift */; };
+		2C5DD88825C361840092F91B /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5DD88725C361840092F91B /* AuthService.swift */; };
 		2CA7E05D25BAF85C00DF49AA /* SetupProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA7E05C25BAF85C00DF49AA /* SetupProfileViewController.swift */; };
 		2CA7E06025BAFBE900DF49AA /* AddPhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA7E05F25BAFBE900DF49AA /* AddPhotoView.swift */; };
 		2CA7E06425BB0B2600DF49AA /* SegmentedControl + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA7E06325BB0B2600DF49AA /* SegmentedControl + Extension.swift */; };
@@ -36,6 +38,7 @@
 		2CF20CD425BC37CC00524C22 /* SectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF20CD325BC37CC00524C22 /* SectionHeader.swift */; };
 		2CFE1B1A25BC6E9400F6FA0C /* users.json in Resources */ = {isa = PBXBuildFile; fileRef = 2CFE1B1925BC6E9400F6FA0C /* users.json */; };
 		2CFE1B1D25BC701C00F6FA0C /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CFE1B1C25BC701C00F6FA0C /* Model.swift */; };
+		4EFCD6C50D0F85A48408F59F /* Pods_BanGipsChat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 225BEA991154919E6438637E /* Pods_BanGipsChat.framework */; };
 		571DC8FB25BF04B1006FED15 /* InsertableTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 571DC8FA25BF04B1006FED15 /* InsertableTextField.swift */; };
 		572071CD25BE156900F48069 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 572071CC25BE156900F48069 /* ProfileViewController.swift */; };
 		578E067F25B989E8001FCDB6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 578E067E25B989E8001FCDB6 /* AppDelegate.swift */; };
@@ -46,6 +49,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1D1FC5FDD3FAB643943877EF /* Pods-BanGipsChat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BanGipsChat.release.xcconfig"; path = "Target Support Files/Pods-BanGipsChat/Pods-BanGipsChat.release.xcconfig"; sourceTree = "<group>"; };
+		225BEA991154919E6438637E /* Pods_BanGipsChat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BanGipsChat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2C04CA9825C359CE0021A6F8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2C1DBEBE25B9973200ABEF75 /* UIButton + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton + Extension.swift"; sourceTree = "<group>"; };
 		2C1DBEC125B99A2500ABEF75 /* UIFont + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont + Extension.swift"; sourceTree = "<group>"; };
 		2C1DBEC425B99C5100ABEF75 /* UIColor + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor + Extension.swift"; sourceTree = "<group>"; };
@@ -57,6 +63,7 @@
 		2C26057825B9E58000C38BE4 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		2C42089A25BD7D0100EFF07A /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
 		2C575A5A25C0956000B11E43 /* ChatRequestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRequestViewController.swift; sourceTree = "<group>"; };
+		2C5DD88725C361840092F91B /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		2CA7E05C25BAF85C00DF49AA /* SetupProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupProfileViewController.swift; sourceTree = "<group>"; };
 		2CA7E05F25BAFBE900DF49AA /* AddPhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPhotoView.swift; sourceTree = "<group>"; };
 		2CA7E06325BB0B2600DF49AA /* SegmentedControl + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SegmentedControl + Extension.swift"; sourceTree = "<group>"; };
@@ -75,6 +82,7 @@
 		2CF20CD325BC37CC00524C22 /* SectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeader.swift; sourceTree = "<group>"; };
 		2CFE1B1925BC6E9400F6FA0C /* users.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = users.json; sourceTree = "<group>"; };
 		2CFE1B1C25BC701C00F6FA0C /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		46E70AEE1E8B0186A132212F /* Pods-BanGipsChat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BanGipsChat.debug.xcconfig"; path = "Target Support Files/Pods-BanGipsChat/Pods-BanGipsChat.debug.xcconfig"; sourceTree = "<group>"; };
 		571DC8FA25BF04B1006FED15 /* InsertableTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsertableTextField.swift; sourceTree = "<group>"; };
 		572071CC25BE156900F48069 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		578E067B25B989E8001FCDB6 /* BanGipsChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BanGipsChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -91,12 +99,21 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4EFCD6C50D0F85A48408F59F /* Pods_BanGipsChat.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0F769A8104B8DE6FD7B869DB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				225BEA991154919E6438637E /* Pods_BanGipsChat.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		2C1DBECD25B9A16600ABEF75 /* UIKit */ = {
 			isa = PBXGroup;
 			children = (
@@ -136,6 +153,15 @@
 				2C1DBED425B9A55100ABEF75 /* Constraints.swift */,
 			);
 			path = Constraints;
+			sourceTree = "<group>";
+		};
+		2C5DD88625C361440092F91B /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				2CFE1B1C25BC701C00F6FA0C /* Model.swift */,
+				2C5DD88725C361840092F91B /* AuthService.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 		2CA7E06925BB18CE00DF49AA /* SingIn&Auth */ = {
@@ -186,6 +212,8 @@
 			children = (
 				578E067D25B989E8001FCDB6 /* BanGipsChat */,
 				578E067C25B989E8001FCDB6 /* Products */,
+				5CA765723055F5ED31DFE5E5 /* Pods */,
+				0F769A8104B8DE6FD7B869DB /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -200,17 +228,27 @@
 		578E067D25B989E8001FCDB6 /* BanGipsChat */ = {
 			isa = PBXGroup;
 			children = (
+				2C5DD88625C361440092F91B /* Services */,
 				578E067E25B989E8001FCDB6 /* AppDelegate.swift */,
 				578E068025B989E8001FCDB6 /* SceneDelegate.swift */,
-				2CFE1B1C25BC701C00F6FA0C /* Model.swift */,
 				2CA7E06A25BB18FE00DF49AA /* Controllers */,
 				2CA7E06925BB18CE00DF49AA /* SingIn&Auth */,
 				2C1DBECE25B9A17100ABEF75 /* Extensions */,
 				578E068725B989E9001FCDB6 /* Assets.xcassets */,
 				578E068925B989E9001FCDB6 /* LaunchScreen.storyboard */,
 				578E068C25B989E9001FCDB6 /* Info.plist */,
+				2C04CA9825C359CE0021A6F8 /* GoogleService-Info.plist */,
 			);
 			path = BanGipsChat;
+			sourceTree = "<group>";
+		};
+		5CA765723055F5ED31DFE5E5 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				46E70AEE1E8B0186A132212F /* Pods-BanGipsChat.debug.xcconfig */,
+				1D1FC5FDD3FAB643943877EF /* Pods-BanGipsChat.release.xcconfig */,
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -220,9 +258,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 578E068F25B989E9001FCDB6 /* Build configuration list for PBXNativeTarget "BanGipsChat" */;
 			buildPhases = (
+				6104301392C4500DB958DD5D /* [CP] Check Pods Manifest.lock */,
 				578E067725B989E8001FCDB6 /* Sources */,
 				578E067825B989E8001FCDB6 /* Frameworks */,
 				578E067925B989E8001FCDB6 /* Resources */,
+				86F9260EE71355FEB47AB826 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -275,10 +315,53 @@
 				578E068B25B989E9001FCDB6 /* LaunchScreen.storyboard in Resources */,
 				578E068825B989E9001FCDB6 /* Assets.xcassets in Resources */,
 				2CC72D2C25BB5308008A4571 /* activeChats.json in Resources */,
+				2C04CA9925C359CE0021A6F8 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		6104301392C4500DB958DD5D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-BanGipsChat-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		86F9260EE71355FEB47AB826 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BanGipsChat/Pods-BanGipsChat-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BanGipsChat/Pods-BanGipsChat-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BanGipsChat/Pods-BanGipsChat-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		578E067725B989E8001FCDB6 /* Sources */ = {
@@ -300,6 +383,7 @@
 				2C1DBEC825B99E8300ABEF75 /* Label + Extension.swift in Sources */,
 				2C1DBED125B9A33800ABEF75 /* ButtonFormView.swift in Sources */,
 				572071CD25BE156900F48069 /* ProfileViewController.swift in Sources */,
+				2C5DD88825C361840092F91B /* AuthService.swift in Sources */,
 				2C575A5B25C0956000B11E43 /* ChatRequestViewController.swift in Sources */,
 				2CF20CD425BC37CC00524C22 /* SectionHeader.swift in Sources */,
 				578E067F25B989E8001FCDB6 /* AppDelegate.swift in Sources */,
@@ -451,6 +535,7 @@
 		};
 		578E069025B989E9001FCDB6 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 46E70AEE1E8B0186A132212F /* Pods-BanGipsChat.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -471,6 +556,7 @@
 		};
 		578E069125B989E9001FCDB6 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1D1FC5FDD3FAB643943877EF /* Pods-BanGipsChat.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

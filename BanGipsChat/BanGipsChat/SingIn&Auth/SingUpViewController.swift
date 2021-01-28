@@ -35,6 +35,21 @@ class SingUpViewController: UIViewController {
 
         setupConstraints()
         view.backgroundColor = .systemBackground
+        
+        singUpButton.addTarget(self, action: #selector(singUpButtonTapped), for: .touchUpInside)
+    }
+    
+    @objc private func singUpButtonTapped() {
+        AuthService.shared.register(email: emailTextField.text, password: passwordTextField.text, cofirmPassword: confirmPasswordTextField.text) { (result) in
+            
+            switch result {
+            case .success(let user):
+                self.showAlert(with: "success", and: "you are register")
+                print(user.email)
+            case .failure(let error):
+                self.showAlert(with: "failure", and: error.localizedDescription)
+            }
+        }
     }
 }
 
@@ -72,6 +87,16 @@ extension SingUpViewController {
         bottomStackView.topAnchor.constraint(equalTo: stackView.bottomAnchor, constant: 60).isActive = true
         bottomStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40).isActive = true
         bottomStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40).isActive = true
+    }
+}
+
+extension UIViewController {
+    
+    func showAlert(with title: String, and message: String) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default)
+        alertController.addAction(okAction)
+        present(alertController, animated: true)
     }
 }
 
