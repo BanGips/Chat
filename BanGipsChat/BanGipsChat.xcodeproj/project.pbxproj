@@ -20,9 +20,14 @@
 		2C42089B25BD7D0100EFF07A /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C42089A25BD7D0100EFF07A /* UserCell.swift */; };
 		2C575A5B25C0956000B11E43 /* ChatRequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C575A5A25C0956000B11E43 /* ChatRequestViewController.swift */; };
 		2C5DD88825C361840092F91B /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5DD88725C361840092F91B /* AuthService.swift */; };
+		2C5DD88B25C36C7B0092F91B /* Validators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5DD88A25C36C7B0092F91B /* Validators.swift */; };
+		2C5DD88E25C370060092F91B /* AuthError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5DD88D25C370060092F91B /* AuthError.swift */; };
 		2CA7E05D25BAF85C00DF49AA /* SetupProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA7E05C25BAF85C00DF49AA /* SetupProfileViewController.swift */; };
 		2CA7E06025BAFBE900DF49AA /* AddPhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA7E05F25BAFBE900DF49AA /* AddPhotoView.swift */; };
 		2CA7E06425BB0B2600DF49AA /* SegmentedControl + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA7E06325BB0B2600DF49AA /* SegmentedControl + Extension.swift */; };
+		2CBC3E8125C403A600EF2C80 /*  AuthNavigationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CBC3E8025C403A600EF2C80 /*  AuthNavigationDelegate.swift */; };
+		2CBC3E8625C4060100EF2C80 /* FirestoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CBC3E8525C4060100EF2C80 /* FirestoreService.swift */; };
+		2CBC3E9E25C40BA000EF2C80 /* UserError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CBC3E9D25C40BA000EF2C80 /* UserError.swift */; };
 		2CC72D1C25BB1937008A4571 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC72D1B25BB1937008A4571 /* ListViewController.swift */; };
 		2CC72D2325BB1D3B008A4571 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC72D2225BB1D3B008A4571 /* MainTabBarController.swift */; };
 		2CC72D2625BB1D7F008A4571 /* PeopleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC72D2525BB1D7F008A4571 /* PeopleViewController.swift */; };
@@ -64,9 +69,14 @@
 		2C42089A25BD7D0100EFF07A /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
 		2C575A5A25C0956000B11E43 /* ChatRequestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRequestViewController.swift; sourceTree = "<group>"; };
 		2C5DD88725C361840092F91B /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		2C5DD88A25C36C7B0092F91B /* Validators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validators.swift; sourceTree = "<group>"; };
+		2C5DD88D25C370060092F91B /* AuthError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthError.swift; sourceTree = "<group>"; };
 		2CA7E05C25BAF85C00DF49AA /* SetupProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupProfileViewController.swift; sourceTree = "<group>"; };
 		2CA7E05F25BAFBE900DF49AA /* AddPhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPhotoView.swift; sourceTree = "<group>"; };
 		2CA7E06325BB0B2600DF49AA /* SegmentedControl + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SegmentedControl + Extension.swift"; sourceTree = "<group>"; };
+		2CBC3E8025C403A600EF2C80 /*  AuthNavigationDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = " AuthNavigationDelegate.swift"; sourceTree = "<group>"; };
+		2CBC3E8525C4060100EF2C80 /* FirestoreService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreService.swift; sourceTree = "<group>"; };
+		2CBC3E9D25C40BA000EF2C80 /* UserError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserError.swift; sourceTree = "<group>"; };
 		2CC72D1B25BB1937008A4571 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		2CC72D2225BB1D3B008A4571 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		2CC72D2525BB1D7F008A4571 /* PeopleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleViewController.swift; sourceTree = "<group>"; };
@@ -141,8 +151,10 @@
 				2CF20CC225BC1A7C00524C22 /* Cell + Extension.swift */,
 				2CF20CCA25BC28BE00524C22 /* GradientView.swift */,
 				571DC8FA25BF04B1006FED15 /* InsertableTextField.swift */,
+				2C5DD89025C374130092F91B /* Helpers */,
 				2C1DBED325B9A53A00ABEF75 /* Constraints */,
 				2C1DBECD25B9A16600ABEF75 /* UIKit */,
+				2CBC3E8325C403B300EF2C80 /* Protocols */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -160,8 +172,19 @@
 			children = (
 				2CFE1B1C25BC701C00F6FA0C /* Model.swift */,
 				2C5DD88725C361840092F91B /* AuthService.swift */,
+				2CBC3E8525C4060100EF2C80 /* FirestoreService.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		2C5DD89025C374130092F91B /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				2C5DD88A25C36C7B0092F91B /* Validators.swift */,
+				2C5DD88D25C370060092F91B /* AuthError.swift */,
+				2CBC3E9D25C40BA000EF2C80 /* UserError.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		2CA7E06925BB18CE00DF49AA /* SingIn&Auth */ = {
@@ -187,6 +210,14 @@
 				2C575A5A25C0956000B11E43 /* ChatRequestViewController.swift */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		2CBC3E8325C403B300EF2C80 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				2CBC3E8025C403A600EF2C80 /*  AuthNavigationDelegate.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 		2CF20CBD25BC156100524C22 /* Cell */ = {
@@ -372,6 +403,7 @@
 				2C26057925B9E58000C38BE4 /* LoginViewController.swift in Sources */,
 				2C1DBEC225B99A2500ABEF75 /* UIFont + Extension.swift in Sources */,
 				578E068325B989E8001FCDB6 /* AuthViewController.swift in Sources */,
+				2CBC3E8125C403A600EF2C80 /*  AuthNavigationDelegate.swift in Sources */,
 				571DC8FB25BF04B1006FED15 /* InsertableTextField.swift in Sources */,
 				2CA7E05D25BAF85C00DF49AA /* SetupProfileViewController.swift in Sources */,
 				2C1DBED525B9A55100ABEF75 /* Constraints.swift in Sources */,
@@ -384,6 +416,7 @@
 				2C1DBED125B9A33800ABEF75 /* ButtonFormView.swift in Sources */,
 				572071CD25BE156900F48069 /* ProfileViewController.swift in Sources */,
 				2C5DD88825C361840092F91B /* AuthService.swift in Sources */,
+				2C5DD88E25C370060092F91B /* AuthError.swift in Sources */,
 				2C575A5B25C0956000B11E43 /* ChatRequestViewController.swift in Sources */,
 				2CF20CD425BC37CC00524C22 /* SectionHeader.swift in Sources */,
 				578E067F25B989E8001FCDB6 /* AppDelegate.swift in Sources */,
@@ -391,10 +424,13 @@
 				2C1DBEC525B99C5100ABEF75 /* UIColor + Extension.swift in Sources */,
 				2CF20CCB25BC28BE00524C22 /* GradientView.swift in Sources */,
 				2CA7E06025BAFBE900DF49AA /* AddPhotoView.swift in Sources */,
+				2CBC3E8625C4060100EF2C80 /* FirestoreService.swift in Sources */,
 				578E068125B989E8001FCDB6 /* SceneDelegate.swift in Sources */,
 				2C42089B25BD7D0100EFF07A /* UserCell.swift in Sources */,
 				2CC72D2325BB1D3B008A4571 /* MainTabBarController.swift in Sources */,
+				2C5DD88B25C36C7B0092F91B /* Validators.swift in Sources */,
 				2CDFE7F325B9C7230060CE9A /* SingUpViewController.swift in Sources */,
+				2CBC3E9E25C40BA000EF2C80 /* UserError.swift in Sources */,
 				2CC72D1C25BB1937008A4571 /* ListViewController.swift in Sources */,
 				2CDFE7F625B9CA7D0060CE9A /* OneLineTextField.swift in Sources */,
 				2CF20CBF25BC158800524C22 /* ActiveChatCell.swift in Sources */,

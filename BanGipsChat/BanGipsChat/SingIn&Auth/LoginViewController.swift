@@ -9,7 +9,6 @@ import UIKit
 
 class LoginViewController: UIViewController {
     
-    
     let welcomeLabel = UILabel(text: "Welcome Back!", font: .avenir26())
     let loginWithLabel = UILabel(text: "Login with")
     let orLabel = UILabel(text: "or")
@@ -21,7 +20,7 @@ class LoginViewController: UIViewController {
     let emailTextField = OneLineTextField(font: .avenir20())
     let passwordTextField = OneLineTextField(font: .avenir20())
     let loginButton = UIButton(title: "Login", titleColor: .white, backgroundColor: .buttonDark())
-    let singInButton: UIButton = {
+    let singUpButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("Sing Up", for: .normal)
         button.titleLabel?.font = .avenir20()
@@ -29,6 +28,8 @@ class LoginViewController: UIViewController {
         button.setTitleColor(.buttonRed(), for: .normal)
         return button
     }()
+    
+    weak var delegate: AuthNavigationDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,6 +39,13 @@ class LoginViewController: UIViewController {
         googleButton.customizeGoogleButton()
         
         loginButton.addTarget(self, action: #selector(liginButtonTapped), for: .touchUpInside)
+        singUpButton.addTarget(self, action: #selector(singUpButtonTapped), for: .touchUpInside)
+    }
+    
+    @objc private func singUpButtonTapped() {
+        dismiss(animated: true) {
+            self.delegate?.toSingUpVC()
+        }
     }
 
     @objc private func liginButtonTapped() {
@@ -67,7 +75,7 @@ extension LoginViewController {
                                                        loginButton],
                                     axis: .vertical, spasing: 40)
         
-        let bottomStackView = UIStackView(arrangedSubviews: [needAnAccountLabel, singInButton], axis: .horizontal, spasing: 0)
+        let bottomStackView = UIStackView(arrangedSubviews: [needAnAccountLabel, singUpButton], axis: .horizontal, spasing: 0)
         bottomStackView.distribution = .fillEqually
         
         welcomeLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -85,7 +93,7 @@ extension LoginViewController {
         stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40).isActive = true
         stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40).isActive = true
         
-        bottomStackView.topAnchor.constraint(equalTo: stackView.bottomAnchor, constant: 60).isActive = true
+        bottomStackView.topAnchor.constraint(equalTo: stackView.bottomAnchor, constant: 20).isActive = true
         bottomStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40).isActive = true
         bottomStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40).isActive = true
     }
