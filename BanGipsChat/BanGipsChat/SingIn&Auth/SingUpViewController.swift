@@ -53,7 +53,7 @@ class SingUpViewController: UIViewController {
             
             switch result {
             case .success(let user):
-                self.showAlert(with: "OK", and: "heheh") {
+                self.showAlert(with: "OK", and: "You are register") {
                     self.present(SetupProfileViewController(currentUser: user), animated: true)
                 }
             case .failure(let error):

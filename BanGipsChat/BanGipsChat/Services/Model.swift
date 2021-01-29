@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import FirebaseFirestore
 
 struct MChat: Hashable, Decodable {
     var username: String
@@ -29,6 +30,32 @@ struct MUser: Hashable, Decodable {
     var description: String
     var sex: String
     var id: String
+    
+    init(username: String, email: String, avatarStringURL: String, description: String, sex: String, id: String) {
+        self.username = username
+        self.email = email
+        self.avatarStringURL = avatarStringURL
+        self.description = description
+        self.sex = sex
+        self.id = id
+    }
+    
+    init?(document: DocumentSnapshot) {
+        guard let data = document.data() else { return nil }
+        guard let userName = data["username"] as? String,
+              let email = data["email"] as? String,
+              let avatarStringURL = data["avatarStringURL"] as? String,
+              let description = data["description"] as? String,
+              let sex = data["sex"] as? String,
+              let id = data["uid"] as? String  else { return nil }
+        
+        self.username = userName
+        self.email = email
+        self.avatarStringURL = avatarStringURL
+        self.description = description
+        self.sex = sex
+        self.id = id
+    }
     
     var representation: [String: Any] {
         var rep = ["username": username]
