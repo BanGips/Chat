@@ -26,7 +26,20 @@ class PeopleViewController: UIViewController {
             }
         }
     }
-
+    
+    private let currentUser: MUser
+    
+    init(currentUser: MUser) {
+        self.currentUser = currentUser
+        super.init(nibName: nil, bundle: nil)
+        
+        title = currentUser.username
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -172,26 +185,26 @@ extension PeopleViewController: UISearchBarDelegate {
 
 
 // MARK: - SwiftUI
-import SwiftUI
-
-struct PeopleControllerProvider: PreviewProvider {
-    
-    static var previews: some View {
-        Group {
-            ContainerView().edgesIgnoringSafeArea(.all)
-        }
-    }
-    
-    struct ContainerView: UIViewControllerRepresentable {
-        
-        let viewController = MainTabBarController()
-        
-        func makeUIViewController(context: Context) -> some UIViewController {
-            return viewController
-        }
-        
-        func updateUIViewController(_ uiViewController: UIViewControllerType, context: Context) {
-        
-        }
-    }
-}
+//import SwiftUI
+//
+//struct PeopleControllerProvider: PreviewProvider {
+//    
+//    static var previews: some View {
+//        Group {
+//            ContainerView().edgesIgnoringSafeArea(.all)
+//        }
+//    }
+//    
+//    struct ContainerView: UIViewControllerRepresentable {
+//        
+//        let viewController = MainTabBarController()
+//        
+//        func makeUIViewController(context: Context) -> some UIViewController {
+//            return viewController
+//        }
+//        
+//        func updateUIViewController(_ uiViewController: UIViewControllerType, context: Context) {
+//        
+//        }
+//    }
+//}
