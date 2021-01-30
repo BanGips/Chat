@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import GoogleSignIn
 
 class LoginViewController: UIViewController {
     
@@ -40,12 +41,18 @@ class LoginViewController: UIViewController {
         
         loginButton.addTarget(self, action: #selector(liginButtonTapped), for: .touchUpInside)
         singUpButton.addTarget(self, action: #selector(singUpButtonTapped), for: .touchUpInside)
+        googleButton.addTarget(self, action: #selector(googleButtonTapped), for: .touchUpInside  )
     }
     
     @objc private func singUpButtonTapped() {
         dismiss(animated: true) {
             self.delegate?.toSingUpVC()
         }
+    }
+    
+    @objc func googleButtonTapped() {
+        GIDSignIn.sharedInstance()?.presentingViewController = self
+        GIDSignIn.sharedInstance().signIn()
     }
 
     @objc private func liginButtonTapped() {
