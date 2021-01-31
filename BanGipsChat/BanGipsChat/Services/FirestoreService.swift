@@ -5,7 +5,7 @@
 //  Created by BanGips on 29.01.21.
 //
 
-import FirebaseFirestore
+//import FirebaseFirestore
 import Firebase
 
 class FirestoreService {
@@ -15,7 +15,7 @@ class FirestoreService {
     let db = Firestore.firestore()
     
     private var usersRef: CollectionReference {
-        return db.collection("users ")
+        return db.collection("users")
     }
     
     func getUserData(user: User, completion: @escaping (Result<MUser, Error>) -> Void ) {
@@ -38,7 +38,7 @@ class FirestoreService {
             return
         }
         
-        guard avatarImage != #imageLiteral(resourceName: "avatar") else {
+        guard avatarImage != #imageLiteral(resourceName: "avatar-4") else {
             completion(.failure(UserError.photoNotExist))
             return
         }

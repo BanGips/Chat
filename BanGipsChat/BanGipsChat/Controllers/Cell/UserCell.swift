@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class UserCell: UICollectionViewCell {
     
@@ -32,6 +33,10 @@ class UserCell: UICollectionViewCell {
         containerView.clipsToBounds = true
     }
     
+    override func prepareForReuse() {
+        userImageView.image = nil
+    }
+    
     private func setConstraints() {
         userImageView.translatesAutoresizingMaskIntoConstraints = false
         userNameLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -56,7 +61,8 @@ class UserCell: UICollectionViewCell {
     
     func configure(with value: MUser) {
         userNameLabel.text = value.username
-        userImageView.image = UIImage(named: "human1")
+        guard let url = URL(string: value.avatarStringURL) else { return }
+        userImageView.kf.setImage(with: url)
     }
     
     required init?(coder: NSCoder) {
