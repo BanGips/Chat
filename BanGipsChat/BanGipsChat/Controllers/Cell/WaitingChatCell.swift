@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class WaitingChatCell: UICollectionViewCell {
     
@@ -21,7 +22,8 @@ class WaitingChatCell: UICollectionViewCell {
     }
     
     func configure(with value: MChat) {
-        friendRequestImageView.image = UIImage(named: "human1")
+        friendRequestImageView.kf.setImage(with: URL(string: value.friendAvatarStringURL))
+        
     }
     
     required init?(coder: NSCoder) {

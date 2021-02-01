@@ -37,6 +37,7 @@
 		2CC72D2625BB1D7F008A4571 /* PeopleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC72D2525BB1D7F008A4571 /* PeopleViewController.swift */; };
 		2CC72D2F25BB53B7008A4571 /* Bundle-Decodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC72D2E25BB53B7008A4571 /* Bundle-Decodable.swift */; };
 		2CCA039F25C7F8D10015E2D5 /* MMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CCA039E25C7F8D10015E2D5 /* MMessage.swift */; };
+		2CCA03A225C823FC0015E2D5 /* WaitingsChatNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CCA03A125C823FC0015E2D5 /* WaitingsChatNavigation.swift */; };
 		2CDFE7F325B9C7230060CE9A /* SingUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CDFE7F225B9C7230060CE9A /* SingUpViewController.swift */; };
 		2CDFE7F625B9CA7D0060CE9A /* OneLineTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CDFE7F525B9CA7D0060CE9A /* OneLineTextField.swift */; };
 		2CF20CBF25BC158800524C22 /* ActiveChatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF20CBE25BC158800524C22 /* ActiveChatCell.swift */; };
@@ -88,6 +89,7 @@
 		2CC72D2525BB1D7F008A4571 /* PeopleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleViewController.swift; sourceTree = "<group>"; };
 		2CC72D2E25BB53B7008A4571 /* Bundle-Decodable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Bundle-Decodable.swift"; sourceTree = "<group>"; };
 		2CCA039E25C7F8D10015E2D5 /* MMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMessage.swift; sourceTree = "<group>"; };
+		2CCA03A125C823FC0015E2D5 /* WaitingsChatNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitingsChatNavigation.swift; sourceTree = "<group>"; };
 		2CDFE7F225B9C7230060CE9A /* SingUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingUpViewController.swift; sourceTree = "<group>"; };
 		2CDFE7F525B9CA7D0060CE9A /* OneLineTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneLineTextField.swift; sourceTree = "<group>"; };
 		2CF20CBE25BC158800524C22 /* ActiveChatCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveChatCell.swift; sourceTree = "<group>"; };
@@ -222,6 +224,7 @@
 			isa = PBXGroup;
 			children = (
 				2CBC3E8025C403A600EF2C80 /*  AuthNavigationDelegate.swift */,
+				2CCA03A125C823FC0015E2D5 /* WaitingsChatNavigation.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -422,6 +425,7 @@
 			files = (
 				2CFE1B1D25BC701C00F6FA0C /* Model.swift in Sources */,
 				2C26057925B9E58000C38BE4 /* LoginViewController.swift in Sources */,
+				2CCA03A225C823FC0015E2D5 /* WaitingsChatNavigation.swift in Sources */,
 				2C1DBEC225B99A2500ABEF75 /* UIFont + Extension.swift in Sources */,
 				578E068325B989E8001FCDB6 /* AuthViewController.swift in Sources */,
 				2CBC3E8125C403A600EF2C80 /*  AuthNavigationDelegate.swift in Sources */,
