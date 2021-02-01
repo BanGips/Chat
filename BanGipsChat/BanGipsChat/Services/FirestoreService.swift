@@ -5,7 +5,7 @@
 //  Created by BanGips on 29.01.21.
 //
 
-//import FirebaseFirestore
+import FirebaseFirestore
 import Firebase
 
 class FirestoreService {
@@ -13,6 +13,8 @@ class FirestoreService {
     static let shared = FirestoreService()
     
     let db = Firestore.firestore()
+    
+    var currentUser: MUser!
     
     private var usersRef: CollectionReference {
         return db.collection("users")
@@ -24,6 +26,7 @@ class FirestoreService {
             if let document = document, document.exists {
                 guard let mUser = MUser(document: document) else { completion(.failure(UserError.cannotUnwrapToUser))
                     return }
+                self.currentUser = mUser
                 completion(.success(mUser))
             } else {
                 completion(.failure(UserError.cannotGetUserInfo))
@@ -64,6 +67,33 @@ class FirestoreService {
                 }
             case .failure(let error):
                 completion(.failure(error))
+            }
+        }
+    }
+    
+    func createWaitingChat(message: String, resiever: MUser, completion: @escaping (Result<Void, Error>) -> Void) {
+        let reference = db.collection(["users", resiever.id, "waitingChats"].joined(separator: "/"))
+        let messageRef = reference.document(currentUser.id).collection("messages")
+        
+        let message = MMessage(user: currentUser, content: message)
+        
+        let chat = MChat(friendUsername: currentUser.username,
+                         friendAvatarStringURL: currentUser.avatarStringURL,
+                         lastMessage: message.content,
+                         friendId: currentUser.id)
+        
+        reference.document(currentUser.id).setData(chat.representation) { (error) in
+            if let error = error {
+                completion(.failure(error))
+                return
+            }
+            
+            messageRef.addDocument(data: message.representation) { (error) in
+                if let error = error {
+                    completion(.failure(error))
+                    return
+                }
+                completion(.success(Void()))
             }
         }
     }

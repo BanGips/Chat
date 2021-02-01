@@ -26,7 +26,7 @@ class ActiveChatCell: UICollectionViewCell {
     
     func configure(with value: MChat) {
         friendImageView.image = UIImage(named: "human1")
-        friendName.text = value.username
+        friendName.text = value.friendUsername
         lastMessage.text = value.lastMessage
         
     }
