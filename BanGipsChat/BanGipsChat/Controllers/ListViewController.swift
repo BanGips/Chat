@@ -31,10 +31,11 @@ class ListViewController: UIViewController {
         }
     }
     
-    let activeChats = [MChat]()
+    var activeChats = [MChat]()
     var waitingChats = [MChat]()
     
     private var waitingChatListener: ListenerRegistration?
+    private var activeChatListener: ListenerRegistration?
     
     private let currentUser: MUser
     
@@ -72,10 +73,21 @@ class ListViewController: UIViewController {
                 self.showAlert(with: "Error", and: error.localizedDescription)
             }
         })
+        
+        activeChatListener = ListenerService.shared.activeChatsObserve(chats: activeChats, completion: { (result) in
+            switch result {
+            case .success(let chats):
+                self.activeChats = chats
+                self.reloadData()
+            case .failure(let error):
+                self.showAlert(with: "Error", and: error.localizedDescription)
+            }
+        })
     }
     
     deinit {
         waitingChatListener?.remove()
+        activeChatListener?.remove()
     }
     
     private func setupCollectionView() {
@@ -247,7 +259,14 @@ extension ListViewController: WaitingsChatNavigation {
     }
     
     func chatToActive(chat: MChat) {
-        print(#function)
+        FirestoreService.shared.changeToActive(chat: chat) { (result) in
+            switch result {
+            case .success:
+                self.showAlert(with: "Success", and: "Have a nice chat")
+            case .failure(let error):
+                self.showAlert(with: "Error", and: error.localizedDescription)
+            }
+        }
     }
     
     

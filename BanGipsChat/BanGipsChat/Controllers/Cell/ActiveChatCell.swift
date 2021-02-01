@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class ActiveChatCell: UICollectionViewCell {
     
@@ -25,9 +26,9 @@ class ActiveChatCell: UICollectionViewCell {
     }
     
     func configure(with value: MChat) {
-        friendImageView.image = UIImage(named: "human1")
         friendName.text = value.friendUsername
         lastMessage.text = value.lastMessage
+        friendImageView.kf.setImage(with: URL(string: value.friendAvatarStringURL))
         
     }
     
