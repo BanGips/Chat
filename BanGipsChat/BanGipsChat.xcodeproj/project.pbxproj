@@ -21,6 +21,7 @@
 		2C1DBED525B9A55100ABEF75 /* Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1DBED425B9A55100ABEF75 /* Constraints.swift */; };
 		2C1DBED925B9B27F00ABEF75 /* StackView + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1DBED825B9B27F00ABEF75 /* StackView + Extension.swift */; };
 		2C26057925B9E58000C38BE4 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C26057825B9E58000C38BE4 /* LoginViewController.swift */; };
+		2C295C4B25C94DC10074583E /* ChatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C295C4A25C94DC10074583E /* ChatsViewController.swift */; };
 		2C42089B25BD7D0100EFF07A /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C42089A25BD7D0100EFF07A /* UserCell.swift */; };
 		2C575A5B25C0956000B11E43 /* ChatRequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C575A5A25C0956000B11E43 /* ChatRequestViewController.swift */; };
 		2C5DD88825C361840092F91B /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5DD88725C361840092F91B /* AuthService.swift */; };
@@ -73,6 +74,7 @@
 		2C1DBED425B9A55100ABEF75 /* Constraints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constraints.swift; sourceTree = "<group>"; };
 		2C1DBED825B9B27F00ABEF75 /* StackView + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StackView + Extension.swift"; sourceTree = "<group>"; };
 		2C26057825B9E58000C38BE4 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		2C295C4A25C94DC10074583E /* ChatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatsViewController.swift; sourceTree = "<group>"; };
 		2C42089A25BD7D0100EFF07A /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
 		2C575A5A25C0956000B11E43 /* ChatRequestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRequestViewController.swift; sourceTree = "<group>"; };
 		2C5DD88725C361840092F91B /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
@@ -216,6 +218,7 @@
 				2CC72D2525BB1D7F008A4571 /* PeopleViewController.swift */,
 				572071CC25BE156900F48069 /* ProfileViewController.swift */,
 				2C575A5A25C0956000B11E43 /* ChatRequestViewController.swift */,
+				2C295C4A25C94DC10074583E /* ChatsViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -429,6 +432,7 @@
 				2C1DBEC225B99A2500ABEF75 /* UIFont + Extension.swift in Sources */,
 				578E068325B989E8001FCDB6 /* AuthViewController.swift in Sources */,
 				2CBC3E8125C403A600EF2C80 /*  AuthNavigationDelegate.swift in Sources */,
+				2C295C4B25C94DC10074583E /* ChatsViewController.swift in Sources */,
 				571DC8FB25BF04B1006FED15 /* InsertableTextField.swift in Sources */,
 				2CA7E05D25BAF85C00DF49AA /* SetupProfileViewController.swift in Sources */,
 				2C1348E625C5B9BE00A39D09 /* StorageService.swift in Sources */,
