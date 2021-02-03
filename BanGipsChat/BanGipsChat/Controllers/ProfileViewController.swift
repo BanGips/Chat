@@ -6,20 +6,36 @@
 //
 
 import UIKit
+import Kingfisher
 
 class ProfileViewController: UIViewController {
     
     let containerView = UIView()
-    let imageView = UIImageView(image: #imageLiteral(resourceName: "human1"), contentMode: .scaleAspectFill)
+    let imageView = UIImageView(image: #imageLiteral(resourceName: "avatar-4"), contentMode: .scaleAspectFill)
     let nameLabel = UILabel(text: "PETER DAGGER", font: .systemFont(ofSize: 20, weight: .light))
     let aboutMeLabel = UILabel(text: "fasfasfasfasfasfasfasffsdfsdfsdfsdfsdfsdfsdfsdfsdfafafaf", font: .systemFont(ofSize: 16, weight: .light))
     let myTextField = InsertableTextField()
+    
+    private let user: MUser
     
     override func loadView() {
         super.loadView()
         setupConstraints()
     }
-
+    
+    init(user: MUser) {
+        self.user = user
+        self.nameLabel.text = user.username
+        self.aboutMeLabel.text = user.description
+        self.imageView.kf.setImage(with: URL(string: user.avatarStringURL))
+        
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -44,7 +60,17 @@ class ProfileViewController: UIViewController {
     }
     
     @objc func sendMessage() {
-         print(#function)
+        guard let message = myTextField.text, message != "" else { return }
+        dismiss(animated: true) {
+            FirestoreService.shared.createWaitingChat(message: message, resiever: self.user) { (result) in
+                switch result {
+                case .success():
+                    UIApplication.getTopViewController()?.showAlert(with: "Success", and: "your message was has been sent")
+                case .failure(let error):
+                    UIApplication.getTopViewController()?.showAlert(with: "Error", and: error.localizedDescription)
+                }
+            }
+        }
      }
     
 }
@@ -84,27 +110,27 @@ extension ProfileViewController {
     }
 }
 
-// MARK: - SwiftUI
-import SwiftUI
-
-struct ProfileControllerProvider: PreviewProvider {
-    
-    static var previews: some View {
-        Group {
-            ContainerView().edgesIgnoringSafeArea(.all)
-        }
-    }
-    
-    struct ContainerView: UIViewControllerRepresentable {
-        
-        let viewController = ProfileViewController()
-        
-        func makeUIViewController(context: Context) -> some UIViewController {
-            return viewController
-        }
-        
-        func updateUIViewController(_ uiViewController: UIViewControllerType, context: Context) {
-        
-        }
-    }
-}
+//// MARK: - SwiftUI
+//import SwiftUI
+//
+//struct ProfileControllerProvider: PreviewProvider {
+//
+//    static var previews: some View {
+//        Group {
+//            ContainerView().edgesIgnoringSafeArea(.all)
+//        }
+//    }
+//
+//    struct ContainerView: UIViewControllerRepresentable {
+//
+//        let viewController = ProfileViewController()
+//        
+//        func makeUIViewController(context: Context) -> some UIViewController {
+//            return viewController
+//        }
+//
+//        func updateUIViewController(_ uiViewController: UIViewControllerType, context: Context) {
+//
+//        }
+//    }
+//}

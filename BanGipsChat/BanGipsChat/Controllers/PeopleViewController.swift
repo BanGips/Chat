@@ -6,10 +6,13 @@
 //
 
 import UIKit
+import FirebaseAuth
+import FirebaseFirestore
 
 class PeopleViewController: UIViewController {
     
-    let users = Bundle.main.decode([MUser].self, from: "users.json")
+    var users = [MUser]()
+    private var usersListener: ListenerRegistration?
     
     var collectionView: UICollectionView!
     var dataSource: UICollectionViewDiffableDataSource<Section, MUser>!
@@ -24,7 +27,24 @@ class PeopleViewController: UIViewController {
             }
         }
     }
-
+    
+    private let currentUser: MUser
+    
+    init(currentUser: MUser) {
+        self.currentUser = currentUser
+        super.init(nibName: nil, bundle: nil)
+        
+        title = currentUser.username
+    }
+    
+    deinit {
+        usersListener?.remove()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -32,8 +52,33 @@ class PeopleViewController: UIViewController {
         setupSearchBar()
         setupCollectionView()
         createDataSource()
-        reloadData(with: nil)
         
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Log Out", style: .plain, target: self, action: #selector(rightBarButtonTapped))
+        
+        usersListener = ListenerService.shared.usersObserve(users: users, completion: { (result) in
+            switch result {
+            case .success(let users):
+                self.users = users
+                self.reloadData(with: nil)
+            case .failure(let error):
+                self.showAlert(with: "Ошибка!", and: error.localizedDescription)
+            }
+        })
+        
+    }
+    
+    @objc private func rightBarButtonTapped() {
+        let alertController = UIAlertController(title: nil, message: "Are you sure you want to sing out", preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        alertController.addAction(UIAlertAction(title: "Sing Out", style: .destructive, handler: { (_) in
+            do {
+                try Auth.auth().signOut()
+                UIApplication.shared.keyWindow?.rootViewController = AuthViewController()
+            } catch {
+                print("error sing out \(error.localizedDescription)")
+            }
+        }))
+        present(alertController, animated: true)
     }
     
     private func setupCollectionView() {
@@ -41,6 +86,7 @@ class PeopleViewController: UIViewController {
         collectionView.autoresizingMask = [ .flexibleWidth, .flexibleHeight]
         collectionView.backgroundColor = .mainWhite()
         view.addSubview(collectionView)
+        collectionView.delegate = self 
         
         collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cellID")
         collectionView.registerHeader(forType: SectionHeader.self)
@@ -150,30 +196,39 @@ extension PeopleViewController: UISearchBarDelegate {
     
 }
 
+extension PeopleViewController: UICollectionViewDelegate {
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let user = self.dataSource.itemIdentifier(for: indexPath) else { return }
+        let profileVC = ProfileViewController(user: user)
+        present(profileVC, animated: true)
+    }
+}
+
 
 
 
 // MARK: - SwiftUI
-import SwiftUI
-
-struct PeopleControllerProvider: PreviewProvider {
-    
-    static var previews: some View {
-        Group {
-            ContainerView().edgesIgnoringSafeArea(.all)
-        }
-    }
-    
-    struct ContainerView: UIViewControllerRepresentable {
-        
-        let viewController = MainTabBarController()
-        
-        func makeUIViewController(context: Context) -> some UIViewController {
-            return viewController
-        }
-        
-        func updateUIViewController(_ uiViewController: UIViewControllerType, context: Context) {
-        
-        }
-    }
-}
+//import SwiftUI
+//
+//struct PeopleControllerProvider: PreviewProvider {
+//    
+//    static var previews: some View {
+//        Group {
+//            ContainerView().edgesIgnoringSafeArea(.all)
+//        }
+//    }
+//    
+//    struct ContainerView: UIViewControllerRepresentable {
+//        
+//        let viewController = MainTabBarController()
+//        
+//        func makeUIViewController(context: Context) -> some UIViewController {
+//            return viewController
+//        }
+//        
+//        func updateUIViewController(_ uiViewController: UIViewControllerType, context: Context) {
+//        
+//        }
+//    }
+//}

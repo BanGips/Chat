@@ -29,12 +29,37 @@ class SingUpViewController: UIViewController {
         return button
     }()
     
+    weak var delegate: AuthNavigationDelegate?
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setupConstraints()
         view.backgroundColor = .systemBackground
+        
+        singUpButton.addTarget(self, action: #selector(singUpButtonTapped), for: .touchUpInside)
+        loginButton.addTarget(self, action: #selector(loginButtonTapped), for: .touchUpInside)
+    }
+    
+    @objc private func loginButtonTapped() {
+        self.dismiss(animated: true) {
+            self.delegate?.toLoginVC()
+        }
+    }
+    
+    @objc private func singUpButtonTapped() {
+        AuthService.shared.register(email: emailTextField.text, password: passwordTextField.text, cofirmPassword: confirmPasswordTextField.text) { (result) in
+            
+            switch result {
+            case .success(let user):
+                self.showAlert(with: "OK", and: "You are register") {
+                    self.present(SetupProfileViewController(currentUser: user), animated: true)
+                }
+            case .failure(let error):
+                self.showAlert(with: "failure", and: error.localizedDescription)
+            }
+        }
     }
 }
 
@@ -72,6 +97,18 @@ extension SingUpViewController {
         bottomStackView.topAnchor.constraint(equalTo: stackView.bottomAnchor, constant: 60).isActive = true
         bottomStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40).isActive = true
         bottomStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40).isActive = true
+    }
+}
+
+extension UIViewController {
+    
+    func showAlert(with title: String, and message: String, completion: @escaping () -> Void = { }) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default) { (_) in
+            completion()
+        }
+        alertController.addAction(okAction)
+        present(alertController, animated: true)
     }
 }
 
