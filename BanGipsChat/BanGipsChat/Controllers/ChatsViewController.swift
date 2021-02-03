@@ -37,7 +37,7 @@ class ChatsViewController: MessagesViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        configureSendButton()
+        configureMessageInputBar()
         
         messagesCollectionView.backgroundColor = .mainWhite()
         messageInputBar.delegate = self
@@ -49,15 +49,25 @@ class ChatsViewController: MessagesViewController {
           layout.setMessageIncomingAvatarSize(.zero)
           layout.setMessageOutgoingAvatarSize(.zero)
         }
-        
-        DispatchQueue.main.async {
-            self.messagesCollectionView.scrollToItem(at: IndexPath(row: 0, section: self.messages.count - 1), at: .bottom, animated: false)
-           }
-        
+       
         messageListener = ListenerService.shared.messagesObserve(chat: chat, completion: { (result) in
             switch result {
-            case .success(let message):
-                self.insertNewMessage(message: message)
+            case .success(var message):
+                if let url = message.downloadURL {
+                    StorageService.shared.downloadImage(url: url) { [weak self] (result) in
+                        guard let self = self else { return }
+                        
+                        switch result {
+                        case .success(let image):
+                            message.image = image
+                            self.insertNewMessage(message: message)
+                        case .failure(let error):
+                            self.showAlert(with: "Error", and: error.localizedDescription)
+                        }
+                    }
+                } else {
+                    self.insertNewMessage(message: message) 
+                }
             case .failure(let error):
                 self.showAlert(with: "Error", and: error.localizedDescription)
             }
@@ -73,18 +83,62 @@ class ChatsViewController: MessagesViewController {
         let shouldScrollToBottom = messagesCollectionView.isAtBottom && isLatestMessage
         
         messagesCollectionView.reloadData()
-        
-        print(shouldScrollToBottom, isLatestMessage, messagesCollectionView.isAtBottom)
-        if shouldScrollToBottom {
+        if !shouldScrollToBottom {
             DispatchQueue.main.async {
-                self.messagesCollectionView.scrollToBottom(animated: true)
+                self.messagesCollectionView.scrollToLastItem(at: .top, animated: false)
             }
-        } else if !messagesCollectionView.isAtBottom {
-            self.messagesCollectionView.scrollToBottom(animated: true)
         }
         
+        if isLatestMessage {
+            messagesCollectionView.scrollToLastItem(at: .top, animated: true)
+        }
+        if !messagesCollectionView.isAtBottom {
+            messagesCollectionView.scrollToLastItem(at: .top, animated: true)
+        }
     }
     
+    @objc private func cameraButtomPressed() {
+        let picker = UIImagePickerController()
+        picker.delegate = self
+        
+        if UIImagePickerController.isSourceTypeAvailable(.camera) {
+            picker.sourceType = .camera
+        } else {
+            picker.sourceType = .photoLibrary
+        }
+        
+        present(picker, animated: true)
+    }
+    
+    private func sendImage(image: UIImage) {
+        StorageService.shared.uploadImageMessage(photo: image, to: chat) { (result) in
+            switch result {
+            case .success(let url):
+                var message = MMessage(user: self.user, image: image)
+                message.downloadURL = url
+                FirestoreService.shared.sendMessage(chat: self.chat, message: message) { (result) in
+                    switch result {
+                    case .success:
+                        self.messagesCollectionView.scrollToLastItem(at: .top, animated: true)
+                    case .failure(_):
+                        self.showAlert(with: "Error", and: "image not send")
+                    }
+                }
+            case .failure(let error):
+                self.showAlert(with: "Error", and: error.localizedDescription)
+            }
+        }
+    }
+    
+}
+
+extension ChatsViewController: UIImagePickerControllerDelegate & UINavigationControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        picker.dismiss(animated: true)
+        
+        guard let image = info[.originalImage] as? UIImage else { return }
+        sendImage(image: image)
+    }
 }
 
 extension ChatsViewController: MessagesDataSource, MessagesDisplayDelegate {
@@ -158,6 +212,7 @@ extension ChatsViewController {
         messageInputBar.layer.shadowOffset = CGSize(width: 0, height: 4)
         
         configureSendButton()
+        configCameraIcon()
     }
     
     func configureSendButton() {
@@ -166,6 +221,20 @@ extension ChatsViewController {
         messageInputBar.sendButton.contentEdgeInsets = UIEdgeInsets(top: 2, left: 2, bottom: 6, right: 30)
         messageInputBar.sendButton.setSize(CGSize(width: 48, height: 48), animated: false)
         messageInputBar.middleContentViewPadding.right = -38
+    }
+    
+    func configCameraIcon() {
+        let cameraItem = InputBarButtonItem(type: .system)
+        cameraItem.tintColor = #colorLiteral(red: 0.9098039269, green: 0.4784313738, blue: 0.6431372762, alpha: 1)
+        let cameraImage = UIImage(named: "camera")!
+        cameraItem.image = cameraImage
+        
+        cameraItem.addTarget(self, action: #selector(cameraButtomPressed), for: .primaryActionTriggered)
+        cameraItem.setSize(CGSize(width: 60, height: 30), animated: false)
+        
+        messageInputBar.leftStackView.alignment = .center
+        messageInputBar.setLeftStackViewWidthConstant(to: 50, animated: false)
+        messageInputBar.setStackViewItems([cameraItem], forStack: .left, animated: false)
     }
 }
 
@@ -188,8 +257,8 @@ extension ChatsViewController: InputBarAccessoryViewDelegate {
         FirestoreService.shared.sendMessage(chat: chat, message: message) { (result) in
             switch result {
             case .success():
-//                self.messagesCollectionView.scrollToBottom(animated: true)
-            print("SEND")
+                self.messagesCollectionView.scrollToLastItem(at: .top, animated: true)
+                break
             case .failure(let error):
                 self.showAlert(with: "Error", and: error.localizedDescription)
             }
