@@ -41,10 +41,12 @@ class AuthViewController: UIViewController {
     }
     
     @objc private func emailButtonTapped() {
+//        singUpVC.modalPresentationStyle = .fullScreen
         present(singUpVC, animated: true, completion: nil)
     }
     
     @objc func loginButtonTapped() {
+//        loginVC.modalPresentationStyle = .fullScreen
         present(loginVC, animated: true, completion: nil)
     }
     
@@ -69,13 +71,14 @@ extension AuthViewController {
         
         view.addSubview(stackView)
         
-        logoImageView.topAnchor.constraint(equalTo: view.topAnchor, constant: 160).isActive = true
+//        logoImageView.topAnchor.constraint(equalTo: view.topAnchor, constant: 100).isActive = true
         logoImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        
-        stackView.topAnchor.constraint(equalTo: logoImageView.bottomAnchor, constant: 160).isActive = true
-        
+        logoImageView.bottomAnchor.constraint(equalTo: stackView.topAnchor, constant: -80).isActive = true
+//        stackView.topAnchor.constraint(equalTo: logoImageView.bottomAnchor, constant: 100).isActive = true
         stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40).isActive = true
         stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40).isActive = true
+
+        stackView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -80).isActive = true
     }
 }
 

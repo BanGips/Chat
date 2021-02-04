@@ -10,6 +10,9 @@ import GoogleSignIn
 
 class LoginViewController: UIViewController {
     
+    let scrollView = UIScrollView()
+    let contentView = UIView()
+    
     let welcomeLabel = UILabel(text: "Welcome Back!", font: .avenir26())
     let loginWithLabel = UILabel(text: "Login with")
     let orLabel = UILabel(text: "or")
@@ -31,6 +34,28 @@ class LoginViewController: UIViewController {
     }()
     
     weak var delegate: AuthNavigationDelegate?
+    
+    override func viewWillAppear(_ animated: Bool) {
+        NotificationCenter.default.addObserver(self, selector: #selector(adjustScrollView), name: UIResponder.keyboardWillShowNotification, object: nil)
+
+        NotificationCenter.default.addObserver(self, selector: #selector(adjustScrollView), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    @objc func adjustScrollView(notification: Notification) {
+        guard let keyboardValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else { return }
+        let keyboardScreenEndFrame = keyboardValue.cgRectValue
+
+        if notification.name == UIResponder.keyboardWillHideNotification {
+            scrollView.contentInset = .zero
+        } else {
+            scrollView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: keyboardScreenEndFrame.height + 20, right: 0)
+        }
+        scrollView.scrollIndicatorInsets = scrollView.contentInset
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        NotificationCenter.default.removeObserver(self)
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,9 +70,9 @@ class LoginViewController: UIViewController {
     }
     
     @objc private func singUpButtonTapped() {
-        dismiss(animated: true) {
-            self.delegate?.toSingUpVC()
-        }
+//        dismiss(animated: true) {
+//            self.delegate?.toSingUpVC()
+//        }
     }
     
     @objc func googleButtonTapped() {
@@ -81,6 +106,17 @@ class LoginViewController: UIViewController {
 extension LoginViewController {
     
     private func setupConstraints() {
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        scrollView.keyboardDismissMode = .onDrag
+        contentView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(scrollView)
+        scrollView.addSubview(contentView)
+        
+        scrollView.fillSuperview()
+        contentView.fillSuperview()
+        contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor).isActive = true
+        contentView.heightAnchor.constraint(equalToConstant: 800).isActive = true
+        
         let loginWithView = ButtonFormView(label: loginWithLabel, button: googleButton)
         let emailStackView = UIStackView(arrangedSubviews: [emailLabel, emailTextField], axis: .vertical, spasing: 0)
         let passwordStackView = UIStackView(arrangedSubviews: [passwordLabel, passwordTextField], axis: .vertical, spasing: 0)
@@ -100,20 +136,20 @@ extension LoginViewController {
         stackView.translatesAutoresizingMaskIntoConstraints = false
         bottomStackView.translatesAutoresizingMaskIntoConstraints = false
         
-        view.addSubview(welcomeLabel)
-        view.addSubview(stackView)
-        view.addSubview(bottomStackView)
+        contentView.addSubview(welcomeLabel)
+        contentView.addSubview(stackView)
+        contentView.addSubview(bottomStackView)
         
-        welcomeLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 160).isActive = true
-        welcomeLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        welcomeLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 80).isActive = true
+        welcomeLabel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
         
-        stackView.topAnchor.constraint(equalTo: welcomeLabel.bottomAnchor, constant: 100).isActive = true
-        stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40).isActive = true
-        stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40).isActive = true
+        stackView.topAnchor.constraint(equalTo: welcomeLabel.bottomAnchor, constant: 40).isActive = true
+        stackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 40).isActive = true
+        stackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -40).isActive = true
         
         bottomStackView.topAnchor.constraint(equalTo: stackView.bottomAnchor, constant: 20).isActive = true
-        bottomStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40).isActive = true
-        bottomStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40).isActive = true
+        bottomStackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 40).isActive = true
+        bottomStackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -40).isActive = true
     }
 }
 

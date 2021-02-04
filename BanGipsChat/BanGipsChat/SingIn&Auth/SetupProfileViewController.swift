@@ -11,6 +11,9 @@ import Kingfisher
 
 class SetupProfileViewController: UIViewController {
     
+    let scrollView = UIScrollView()
+    let contentView = UIView()
+    
     let fullImageView = AddPhotoView()
     
     let welcomeLabel = UILabel(text: "Setup profile", font: .avenir26())
@@ -39,6 +42,28 @@ class SetupProfileViewController: UIViewController {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        NotificationCenter.default.addObserver(self, selector: #selector(adjustScrollView), name: UIResponder.keyboardWillShowNotification, object: nil)
+
+        NotificationCenter.default.addObserver(self, selector: #selector(adjustScrollView), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    @objc func adjustScrollView(notification: Notification) {
+        guard let keyboardValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else { return }
+        let keyboardScreenEndFrame = keyboardValue.cgRectValue
+
+        if notification.name == UIResponder.keyboardWillHideNotification {
+            scrollView.contentInset = .zero
+        } else {
+            scrollView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: keyboardScreenEndFrame.height + 20, right: 0)
+        }
+        scrollView.scrollIndicatorInsets = scrollView.contentInset
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        NotificationCenter.default.removeObserver(self)
     }
     
     override func viewDidLoad() {
@@ -85,6 +110,17 @@ extension SetupProfileViewController {
     
     private func setupConstraints() {
         
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        scrollView.keyboardDismissMode = .onDrag
+        contentView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(scrollView)
+        scrollView.addSubview(contentView)
+        
+        scrollView.fillSuperview()
+        contentView.fillSuperview()
+        contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor).isActive = true
+        contentView.heightAnchor.constraint(equalToConstant: 800).isActive = true
+        
         let fullNameStackView = UIStackView(arrangedSubviews: [fullNameLabel, fullNameTextField], axis: .vertical, spasing: 0)
         let aboutMeStackView = UIStackView(arrangedSubviews: [aboutMeLabel, aboutMeTextField], axis: .vertical, spasing: 0)
         let sexStackView = UIStackView(arrangedSubviews: [sexLabel, sexSegmentedControl], axis: .vertical, spasing: 10)
@@ -96,19 +132,19 @@ extension SetupProfileViewController {
         welcomeLabel.translatesAutoresizingMaskIntoConstraints = false
         stackView.translatesAutoresizingMaskIntoConstraints = false
         
-        view.addSubview(fullImageView)
-        view.addSubview(welcomeLabel)
-        view.addSubview(stackView)
+        contentView.addSubview(fullImageView)
+        contentView.addSubview(welcomeLabel)
+        contentView.addSubview(stackView)
         
-        welcomeLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 160).isActive = true
-        welcomeLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        welcomeLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 40).isActive = true
+        welcomeLabel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
         
         fullImageView.topAnchor.constraint(equalTo: welcomeLabel.bottomAnchor, constant: 40).isActive = true
         fullImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         
         stackView.topAnchor.constraint(equalTo: fullImageView.bottomAnchor, constant: 40).isActive = true
-        stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40).isActive = true
-        stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40).isActive = true
+        stackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 40).isActive = true
+        stackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -40).isActive = true
         
     }
 }
@@ -120,31 +156,5 @@ extension SetupProfileViewController: UIImagePickerControllerDelegate & UINaviga
         
         guard let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage else { return }
         fullImageView.circleImageView.image = image
-    }
-}
-
-
-// MARK: - SwiftUI
-import SwiftUI
-
-struct SetupProControllerProvider: PreviewProvider {
-    
-    static var previews: some View {
-        Group {
-            ContainerView().edgesIgnoringSafeArea(.all)
-        }
-    }
-    
-    struct ContainerView: UIViewControllerRepresentable {
-        
-        let viewController = SetupProfileViewController(currentUser: Auth.auth().currentUser!)
-        
-        func makeUIViewController(context: Context) -> some UIViewController {
-            return viewController
-        }
-        
-        func updateUIViewController(_ uiViewController: UIViewControllerType, context: Context) {
-        
-        }
     }
 }
