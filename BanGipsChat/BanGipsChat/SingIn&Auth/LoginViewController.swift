@@ -70,9 +70,9 @@ class LoginViewController: UIViewController {
     }
     
     @objc private func singUpButtonTapped() {
-//        dismiss(animated: true) {
-//            self.delegate?.toSingUpVC()
-//        }
+        dismiss(animated: true) {
+            self.delegate?.toSingUpVC()
+        }
     }
     
     @objc func googleButtonTapped() {
